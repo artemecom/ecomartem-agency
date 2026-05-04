@@ -855,3 +855,59 @@ footer {
   transition: border-color 200ms ease, color 200ms ease;
 }
 .theme-toggle:hover { color: var(--fg); border-color: var(--fg-dim); }
+
+/* ============ Mobile fixes (≤640px) ============ */
+/* Prevent grid blow-out: child grid items default to min-width: auto which
+   allows long mono strings (e.g. campaign IDs, big numbers) to push their
+   parent wider than the viewport. Reset to 0 so they actually shrink. */
+@media (max-width: 640px) {
+  .op-grid > *,
+  .dash,
+  .dash-body,
+  .stat-card { min-width: 0; }
+
+  /* Dashboard mockup — shrink internals to fit narrow viewports */
+  .dash-bar { padding: 10px 12px; gap: 6px; }
+  .dash-bar .url {
+    margin-left: 10px;
+    font-size: 10.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .dash-body { padding: 14px; }
+  .dash-stats { gap: 6px; margin-bottom: 16px; }
+  .dash-stat { padding: 8px; }
+  .dash-stat .lbl { font-size: 10px; }
+  .dash-stat .val {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dash-stat .delta { font-size: 10px; }
+
+  .chart { height: 140px; }
+
+  .dash-table { font-size: 10.5px; }
+  .dash-table .row {
+    grid-template-columns: minmax(0, 1fr) 52px 42px 42px;
+    gap: 6px;
+  }
+  .dash-table .row > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  /* Big stat numbers (ArtHouses.store, $12.4M+, 500+) — scale to fit card */
+  .stat-card { padding: 22px; }
+  .stat-card .num {
+    font-size: clamp(26px, 8.5vw, 44px);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
