@@ -1,26 +1,350 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Handoff CSS from Claude Design — preserved as-is so we don't lose design tokens or animations */
+@import "./handoff-styles.css";
+@import "./handoff-animations.css";
+@import "./handoff-services.css";
+@import "./handoff-cases-about.css";
+@import "./handoff-scope-pill.css";
 
+/* Bridge: Tailwind theme tokens reference handoff variables */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-bg-soft: var(--bg-soft);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-dim: var(--fg-dim);
+  --color-border-token: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Hide Next.js default body font override — let handoff control */
+body {
+  font-family: var(--font-body);
+}
+
+/* Case Media — hybrid static image + video on hover */
+.case-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.case-media-img,
+.case-media-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.case-media-img {
+  opacity: 1;
+  z-index: 1;
+}
+.case-media-video {
+  opacity: 0;
+  z-index: 2;
+}
+.case-media:hover .case-media-img {
+  opacity: 0;
+}
+.case-media:hover .case-media-video {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-media:hover .case-media-img {
+    opacity: 1;
+  }
+  .case-media:hover .case-media-video {
+    opacity: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Contact / Brief form */
+.contact-form-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px var(--gutter) 0;
+  scroll-margin-top: 80px;
+}
+.contact-form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 56px;
+}
+@media (max-width: 880px) {
+  .contact-form-inner { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; }
+}
+.contact-form-side h3 {
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.ff-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 600px) {
+  .ff-row { grid-template-columns: 1fr; }
+}
+.ff-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+}
+.ff-label input,
+.ff-label select,
+.ff-label textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 200ms ease, background 200ms ease;
+  width: 100%;
+  appearance: none;
+}
+.ff-label input::placeholder,
+.ff-label textarea::placeholder { color: var(--fg-dim); }
+.ff-label input:focus,
+.ff-label select:focus,
+.ff-label textarea:focus {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--bg) 90%, var(--accent) 10%);
+}
+.ff-label select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='none' stroke='%23A1A1AA' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' d='M1 1l4 4 4-4'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 32px;
+}
+.ff-fieldset {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+.ff-legend {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  padding: 0 6px;
+}
+.ff-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.ff-radio:hover { background: var(--bg-soft); }
+.ff-radio input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  margin: 2px 0 0 0;
+  position: relative;
+  cursor: pointer;
+}
+.ff-radio input[type="radio"]:checked {
+  border-color: var(--accent);
+  background: radial-gradient(circle, var(--accent) 0 4px, transparent 4.5px 100%);
+}
+.ff-radio-body { display: flex; flex-direction: column; gap: 3px; }
+.ff-radio-title { color: var(--fg); font-size: 14px; font-weight: 500; }
+.ff-radio-sub { color: var(--fg-muted); font-size: 12px; line-height: 1.4; }
+.ff-submit {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+.ff-fineprint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* Validation errors from @formspree/react */
+.ff-error {
+  color: #ef4444;
+  font-size: 12px;
+  font-family: var(--font-body);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 4px;
+}
+.ff-error-form { margin: 6px 0; }
+
+/* Submit disabled */
+.ff-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Success state */
+.contact-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 32px;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--accent-glow), 0 18px 48px -16px var(--accent-glow);
+}
+.ff-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #0A0A0A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ff-success-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--fg);
+}
+.ff-success-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.ff-success-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  margin: 0;
+}
+
+/* Bundle arrow — match hover behavior of regular .svc-card-head .svc-arrow */
+.svc-bundle:hover .svc-arrow svg {
+  transform: translateX(4px);
+}
+.svc-bundle .svc-arrow svg {
+  transition: transform 240ms ease;
+}
+
+/* =========================================================================
+   Service Card Animations — CSS keyframes for SVG mockups
+   Triggered by data-anim attribute, paused outside viewport via .svc-card.
+========================================================================= */
+
+@keyframes svcPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes svcGlow {
+  0%, 100% { filter: drop-shadow(0 0 0px transparent) brightness(0.95); }
+  50% { filter: drop-shadow(0 0 9px var(--accent)) brightness(1.08); }
+}
+@keyframes svcFlow {
+  0% { stroke-dashoffset: 18; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes svcDrift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes svcShimmer {
+  0%, 100% { opacity: 0.4; filter: brightness(0.85); }
+  50% { opacity: 1; filter: brightness(1.2); }
+}
+@keyframes svcDrawIn {
+  0% { stroke-dashoffset: 600; opacity: 0.4; }
+  60% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes svcLiveBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes svcCaret {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Apply to elements with these classes */
+.anim-pulse {
+  animation: svcPulse 2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.anim-glow { animation: svcGlow 2.2s ease-in-out infinite; }
+.anim-flow { stroke-dasharray: 6 6; animation: svcFlow 1.1s linear infinite; }
+.anim-drift {
+  animation: svcDrift 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.anim-shimmer { animation: svcShimmer 2.2s ease-in-out infinite; }
+.anim-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: svcDrawIn 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+}
+.anim-live {
+  animation: svcLiveBlink 2s ease-in-out infinite;
+}
+.anim-caret { animation: svcCaret 0.8s steps(2) infinite; }
+
+/* Stagger helpers */
+.anim-d-0 { animation-delay: 0ms; }
+.anim-d-1 { animation-delay: 200ms; }
+.anim-d-2 { animation-delay: 400ms; }
+.anim-d-3 { animation-delay: 600ms; }
+.anim-d-4 { animation-delay: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-pulse, .anim-glow, .anim-flow, .anim-drift,
+  .anim-shimmer, .anim-draw, .anim-live, .anim-caret {
+    animation: none !important;
+  }
 }

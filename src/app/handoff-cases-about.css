@@ -1,0 +1,198 @@
+/* ============ Cases — 3-card real brands grid ============ */
+.case3-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 1100px) { .case3-grid { grid-template-columns: 1fr 1fr; } .case3.feat { grid-column: 1 / -1; } }
+@media (max-width: 720px)  { .case3-grid { grid-template-columns: 1fr; } .case3.feat { grid-column: auto; } }
+
+.case3 {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-elev);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 280ms ease, border-color 240ms ease, box-shadow 320ms ease;
+  position: relative;
+  isolation: isolate;
+}
+.case3:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 30px 70px -36px var(--accent-glow);
+}
+.case3.feat {
+  border-color: color-mix(in oklab, var(--accent) 50%, var(--border));
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 60%),
+    var(--bg-elev);
+}
+.case3.feat:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-glow), 0 36px 80px -32px var(--accent-glow);
+}
+
+.case3-visual {
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+}
+.case3-visual .case-svg { width: 100%; height: 100%; display: block; transition: transform 600ms ease; }
+.case3:hover .case3-visual .case-svg { transform: scale(1.04); }
+
+.case3-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.case3-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0A0A0A;
+  background: var(--accent);
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+.case3 h3 {
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+.case3-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.case3-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--fg-muted);
+  background: var(--bg);
+}
+.case3-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+  margin: 0;
+}
+.case3-result {
+  font-size: 13.5px;
+  color: var(--fg);
+  padding: 10px 12px;
+  border-left: 2px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+}
+.case3-result b { font-weight: 500; }
+
+.case3-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.case3-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+.case3-cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 200ms ease, gap 200ms ease;
+}
+.case3:hover .case3-cta { color: var(--accent); gap: 10px; }
+
+/* ============ About — real founder photo ============ */
+.portrait-photo {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  aspect-ratio: 4 / 5;
+}
+.portrait-photo-inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.portrait-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 8s ease-out;
+  filter: contrast(1.04) saturate(1.02);
+}
+.portrait-photo.in .portrait-photo-inner img {
+  transform: scale(1.08);
+}
+.portrait-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.55) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, color-mix(in oklab, var(--accent) 8%, transparent) 0%, transparent 70%);
+}
+.portrait-photo .stamp {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(10,10,10,0.6);
+  padding: 5px 9px;
+  border-radius: 5px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+.portrait-photo .stamp-bottom {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait-photo-inner img,
+  .portrait-photo.in .portrait-photo-inner img { transform: scale(1.02); transition: none; }
+}
