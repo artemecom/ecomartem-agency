@@ -910,4 +910,20 @@ footer {
     word-break: break-word;
     overflow-wrap: anywhere;
   }
+
+  /* Loop arrow SVG was designed for ~1200px wide aspect ratio; on narrow
+     mobile viewport preserveAspectRatio="none" squashes the curve into an
+     ugly squiggle. Replace with clean centered mono caption instead. */
+  .loop-arrow { height: auto; margin-top: 18px; }
+  .loop-arrow svg { display: none; }
+  .loop-arrow::after {
+    content: "// LOOP RESTARTS WEEKLY";
+    display: block;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+  }
 }

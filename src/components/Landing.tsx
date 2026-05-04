@@ -820,7 +820,7 @@ function Hero() {
           </a>
         </div>
         <div className="hero-fineprint reveal" data-delay="5">
-          <span>//</span> No daily standups. No dedicated AMs. We ship — we don&apos;t advise.
+          <span>{"//"}</span> No daily standups. No dedicated AMs. We ship — we don&apos;t advise.
         </div>
 
         <div className="scope-pill reveal" data-delay="6">
@@ -1002,21 +1002,21 @@ function Operator() {
 
           <div className="stat-stack">
             <div className="stat-card reveal" data-delay="2">
-              <div className="meta">// Shopify stores built</div>
+              <div className="meta">{"// Shopify stores built"}</div>
               <div className="num">
                 <FlipOnScroll to={500} format={(x) => String(Math.round(x))} />+
               </div>
               <div className="lbl">Since 2019 — for clients and our own brands. Apparel, home, beauty, supplements, more.</div>
             </div>
             <div className="stat-card hl reveal" data-delay="3">
-              <div className="meta">// Active brand</div>
+              <div className="meta">{"// Active brand"}</div>
               <div className="num">
                 ArtHouses<span className="unit">.store</span>
               </div>
               <div className="lbl">Premium furniture · DACH market · Founder-operated daily.</div>
             </div>
             <div className="stat-card reveal" data-delay="4">
-              <div className="meta">// Total ad spend managed</div>
+              <div className="meta">{"// Total ad spend managed"}</div>
               <div className="num">
                 $<FlipOnScroll to={12.4} format={(x) => x.toFixed(1)} />M+
               </div>
@@ -2477,7 +2477,7 @@ function About() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/founder-4x5.jpg" alt="Artem — founder, in a parking garage with a DJI clip-on mic on his collar" />
             </div>
-            <span className="stamp">// FOUNDER · 2026</span>
+            <span className="stamp">{"// FOUNDER · 2026"}</span>
             <span className="stamp-bottom">UNRETOUCHED · NATURAL LIGHT</span>
           </div>
           <div className="about-bio">
@@ -2839,7 +2839,7 @@ function Footer() {
           </div>
         </div>
         <div className="foot-bot">
-          <span>// We ship — we don&apos;t advise.</span>
+          <span>{"// We ship — we don’t advise."}</span>
           <span>© 2026 EcomArtem · All rights reserved</span>
         </div>
       </div>
