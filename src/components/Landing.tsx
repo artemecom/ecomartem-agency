@@ -2486,11 +2486,11 @@ function About() {
               made money. I learned which agency tactics are theater and which actually move revenue.
             </p>
             <p>
-              Then in 2024 the AI tooling got <b>genuinely useful</b> for ecommerce ops, and the gap between
+              Then in 2024 the AI tooling got <b>genuinely useful</b>{" "}for ecommerce ops, and the gap between
               operators who understood it and the agencies selling &quot;AI strategy&quot; decks became absurd.
             </p>
             <p>
-              So I started this. <b>One operator, async-first, transparent pricing.</b> If you want a 14-person
+              So I started this. <b>One operator, async-first, transparent pricing.</b>{" "}If you want a 14-person
               account team and quarterly business reviews, I am not your guy. If you want someone who&apos;s
               losing money on bad creatives at 2am the same way you are — send a brief, I&apos;ll reply async.
             </p>
