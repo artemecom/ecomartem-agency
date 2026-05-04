@@ -176,6 +176,7 @@ body {
 .ff-radio:hover { background: var(--bg-soft); }
 .ff-radio input[type="radio"] {
   appearance: none;
+  flex: 0 0 16px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
