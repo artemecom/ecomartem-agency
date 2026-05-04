@@ -2478,7 +2478,6 @@ function About() {
               <img src="/founder-4x5.jpg" alt="Artem — founder, in a parking garage with a DJI clip-on mic on his collar" />
             </div>
             <span className="stamp">{"// FOUNDER · 2026"}</span>
-            <span className="stamp-bottom">UNRETOUCHED · NATURAL LIGHT</span>
           </div>
           <div className="about-bio">
             <p>
