@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founder-Led AI Loop Assessment — EcomArtem</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e8e8e8;
+      --gray-400: #9a9a9a;
+      --gray-600: #555555;
+      --accent: #00c37a;
+      --accent-dim: #00c37a22;
+      --red: #ff4d4d;
+      --red-dim: #ff4d4d15;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 1px solid #1e1e1e;
+      padding-bottom: 40px;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      color: var(--gray-400);
+      font-size: 15px;
+      max-width: 520px;
+    }
+
+    /* Intro box */
+    .intro-box {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      font-size: 15px;
+      color: var(--gray-400);
+      line-height: 1.7;
+    }
+
+    .intro-box strong { color: var(--white); }
+
+    /* Section label */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 24px;
+    }
+
+    /* Loop cards */
+    .loops { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+
+    .loop-card {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 24px 28px;
+      transition: border-color 0.2s;
+    }
+
+    .loop-card:hover { border-color: #333; }
+
+    .loop-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .loop-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-400);
+      margin-top: 1px;
+    }
+
+    .loop-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .loop-desc {
+      color: var(--gray-400);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      padding-left: 48px;
+    }
+
+    .red-flag {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: var(--red-dim);
+      border: 1px solid #ff4d4d22;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-left: 48px;
+      font-size: 13px;
+      color: #ff8080;
+      line-height: 1.5;
+    }
+
+    .red-flag::before {
+      content: "⚑";
+      flex-shrink: 0;
+      color: var(--red);
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    /* Score */
+    .score-section {
+      margin-bottom: 48px;
+    }
+
+    .score-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .score-range {
+      flex-shrink: 0;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      width: 48px;
+      text-align: center;
+    }
+
+    .score-range.bad  { color: var(--red); }
+    .score-range.mid  { color: #f5a623; }
+    .score-range.good { color: var(--accent); }
+
+    .score-text {
+      font-size: 14px;
+      color: var(--gray-400);
+      line-height: 1.5;
+    }
+
+    .score-text strong { color: var(--white); display: block; font-size: 15px; margin-bottom: 2px; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #1e1e1e;
+      margin: 48px 0;
+    }
+
+    /* CTA */
+    .cta-section { text-align: center; }
+
+    .cta-section h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: var(--gray-400);
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 380px;
+      margin: 0 auto 36px;
+      text-align: left;
+    }
+
+    .cta-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--gray-400);
+    }
+
+    .step-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: opacity 0.15s;
+    }
+
+    .cta-btn:hover { opacity: 0.88; }
+
+    .no-call-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .footer-name span { color: var(--gray-400); font-weight: 400; }
+
+    .footer-link {
+      font-size: 13px;
+      color: var(--gray-400);
+      text-decoration: none;
+    }
+
+    .footer-link:hover { color: var(--white); }
+
+    @media (max-width: 480px) {
+      .page { padding: 40px 20px 60px; }
+      .loop-desc, .red-flag { padding-left: 0; margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Free Resource · EcomArtem.com</div>
+    <h1>Founder-Led<br><span>AI Loop Assessment</span></h1>
+    <p class="subtitle">A 5-point self-audit for Shopify DTC brands doing $1M–$10M/year. Find where your store leaks revenue because AI isn't in the loop yet.</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro-box">
+    <strong>How to use this:</strong> Go through each loop below. Be honest. If you can't answer "yes, it's automated" — that loop is open. Most $1M–$5M stores have 1–2 loops closed at best. The gaps are where your CAC is inflated and your ROAS is underperforming.
+  </div>
+
+  <!-- Loops -->
+  <div class="section-label">The 5 Revenue Loops</div>
+
+  <div class="loops">
+
+    <div class="loop-card">
+      <div class="loop-header">
+        <div class="loop-num">01</div>
+        <div class="loop-title">Ad Creative Loop</div>
+      </div>
+      <div class="loop-desc">Are your top-performing creatives automatically feeding back into your creative briefs? Or is your team still guessing what to produce next based on gut feel?</div>
+      <div class="red-flag">Same 3–5 creatives running for 60+ days with no systematic refresh signal</div>
+    </div>
+
+    <div class="loop-card">
+      <div class="loop-header">
+        <div class="loop-num">02</div>
+        <div class="loop-title">Retention Trigger Loop</div>
+      </div>
+      <div class="loop-desc">Does your email/SMS fire based on actual purchase behavior signals and predicted LTV — or fixed day-timers that treat a $20 buyer the same as a $400 buyer?</div>
+      <div class="red-flag">"Day 7 winback" flows not segmented by LTV or product category</div>
+    </div>
+
+    <div class="loop-card">
+      <div class="loop-header">
+        <div class="loop-num">03</div>
+        <div class="loop-title">Inventory–Ad Spend Loop</div>
+      </div>
+      <div class="loop-desc">Does your ad spend automatically throttle down on SKUs going out of stock? Or do you burn budget sending traffic to sold-out PDPs?</div>
+      <div class="red-flag">Manually pausing ad sets when products run out — or not at all</div>
+    </div>
+
+    <div class="loop-card">
+      <div class="loop-header">
+        <div class="loop-num">04</div>
+        <div class="loop-title">COGS–ROAS Loop</div>
+      </div>
+      <div class="loop-desc">Is your target ROAS calculated per-SKU based on actual margin — or one blended number across the entire catalog that makes low-margin products look profitable?</div>
+      <div class="red-flag">One ROAS target for products with $8 margin and $40 margin</div>
+    </div>
+
+    <div class="loop-card">
+      <div class="loop-header">
+        <div class="loop-num">05</div>
+        <div class="loop-title">Creative Fatigue Loop</div>
+      </div>
+      <div class="loop-desc">Do you have an automated signal for when a creative is dying — before your ROAS visibly craters? Or are you catching it two weeks late after budget is already burned?</div>
+      <div class="red-flag">Checking dashboards manually every few days with no automated fatigue alerts</div>
+    </div>
+
+  </div>
+
+  <!-- Score -->
+  <div class="score-section">
+    <div class="section-label">Score Yourself</div>
+    <div class="score-grid">
+      <div class="score-row">
+        <div class="score-range bad">0–1</div>
+        <div class="score-text">
+          <strong>Loops active — significant leak</strong>
+          You're leaving 20–40% efficiency on the table. CAC is inflated, ROAS is suppressed. The fixes are systematic, not tactical.
+        </div>
+      </div>
+      <div class="score-row">
+        <div class="score-range mid">2–3</div>
+        <div class="score-text">
+          <strong>Loops active — solid base, clear gaps</strong>
+          Good foundation. The open loops are likely costing $5–15k/mo in wasted spend or missed retention revenue.
+        </div>
+      </div>
+      <div class="score-row">
+        <div class="score-range good">4–5</div>
+        <div class="score-text">
+          <strong>Loops active — scaling ready</strong>
+          You're in the top 10% of operators. Now the question is what's next — let's find the ceiling.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Get Your Free<br>Loom Breakdown</h2>
+    <p>Send me your store URL on Instagram. I'll record a personalised Loom showing which loops to close first — and exactly how.</p>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="step-dot">1</div>
+        DM "LOOP" on Instagram → @ecomartem.us
+      </div>
+      <div class="cta-step">
+        <div class="step-dot">2</div>
+        Drop your store URL in the chat
+      </div>
+      <div class="cta-step">
+        <div class="step-dot">3</div>
+        Get a personalised Loom in your DMs within 24h
+      </div>
+    </div>
+
+    <a class="cta-btn" href="https://instagram.com/ecomartem.us" target="_blank">
+      DM on Instagram →
+    </a>
+    <div class="no-call-note">No calls &nbsp;·&nbsp; No email sequences &nbsp;·&nbsp; Async only</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-name">Artem &nbsp;<span>· EcomArtem.com</span></div>
+    <a class="footer-link" href="https://ecomartem.com">ecomartem.com</a>
+  </div>
+
+</div>
+</body>
+</html>
