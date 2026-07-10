@@ -134,6 +134,20 @@ function CTAButton({ children }: { children: React.ReactNode }) {
     </a>
   );
 }
+function GateCTA() {
+  return (
+    <div className="my-10 rounded-2xl border border-lime-400/30 bg-lime-400/5 p-6">
+      <div className="font-mono text-[11px] uppercase tracking-widest text-lime-400">Free bonus</div>
+      <h3 className="mt-2 text-xl font-bold text-white">Get the 2026 AI Shopify Blueprint (PDF)</h3>
+      <p className="mt-2 leading-relaxed text-zinc-300">
+        The exact system we use - product, store, AI creative, traffic, AI-search - and the $10-15k mistakes to skip. Yours instantly when you apply below.
+      </p>
+      <a href="#apply" className="mt-4 inline-flex items-center justify-center rounded-full bg-lime-400 px-6 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300">
+        Get the free Blueprint →
+      </a>
+    </div>
+  );
+}
 
 export default function StoryPage() {
   return (
@@ -218,11 +232,13 @@ export default function StoryPage() {
         <P>One example: creating quality ad creative used to mean a thousand dollars for a studio shoot, a photographer, the product, logistics - and a month of preparing and editing. Now it&apos;s less than $20 and ten minutes with the right tool. And the result is often better than the studio shoot.</P>
         <P>Same across the board: building the store, product pages, content, ads, analytics. What only big teams with big budgets could do two years ago is now available to anyone - cheaper, faster, and better.</P>
         <Pull>The window is open. It won&apos;t stay open forever.</Pull>
+        <GateCTA />
 
         <H>What this actually means for you in 2026</H>
         <P>It&apos;s still dropshipping. But not the junk &ldquo;shelf&rdquo; stores from 2019, with everything dumped in, no logo, no socials.</P>
         <P>Today it&apos;s a real brand. Proper packaging, social media run like an actual company - just without your own warehouse and without buying inventory in bulk. And on top of it, AI that runs the store: it builds the store and lifts its conversion, produces more products and better content, and makes your ads more effective through daily analytics and creative variety.</P>
         <Pull>You invest less - and you get a product better than 90% of the market.</Pull>
+        <GateCTA />
 
         <H>&ldquo;Then I&apos;ll just do it myself&rdquo; - and why that costs the most</H>
         <P>Right here you might think: &ldquo;If AI made it all this easy, why pay anyone? I&apos;ll build the store myself.&rdquo; And you&apos;d be right. Half right.</P>
@@ -309,7 +325,7 @@ export default function StoryPage() {
         <div className="mx-auto max-w-xl">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">If you read this far, you&apos;re not random.</h2>
           <p className="mt-4 mb-8 text-lg leading-relaxed text-zinc-300">
-            Leave your details and our team reaches out on WhatsApp. Only a mutual fit gets a call.
+            Leave your details and get the free <strong className="text-white">2026 AI Shopify Blueprint (PDF)</strong> instantly. Our team then reaches out on WhatsApp - only a mutual fit gets a call.
           </p>
           <ApplyForm />
         </div>

@@ -30,7 +30,7 @@ export default function StickyCTA() {
         href="#apply"
         className="w-full max-w-md rounded-full bg-lime-400 px-8 py-4 text-center font-semibold text-zinc-950 shadow-xl shadow-lime-400/25 transition-colors hover:bg-lime-300"
       >
-        Apply - get your store built →
+        Get the free 2026 Shopify Blueprint →
       </a>
     </div>
   );

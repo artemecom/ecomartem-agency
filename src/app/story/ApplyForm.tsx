@@ -16,8 +16,16 @@ export default function ApplyForm() {
       <div className="rounded-2xl border border-lime-400/40 bg-lime-400/5 p-8 text-center">
         <div className="text-2xl font-bold text-white">You&apos;re in.</div>
         <p className="mt-3 text-zinc-300">
-          Our team will reach out to you on WhatsApp shortly. Keep an eye on the number you left.
+          Our team will reach out on WhatsApp shortly. In the meantime, here&apos;s your free blueprint:
         </p>
+        <a
+          href="/downloads/2026-ai-shopify-blueprint.pdf"
+          target="_blank"
+          rel="noopener"
+          className="mt-5 inline-flex items-center justify-center rounded-full bg-lime-400 px-7 py-3.5 font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
+        >
+          Download the 2026 AI Shopify Blueprint (PDF) →
+        </a>
       </div>
     );
   }
