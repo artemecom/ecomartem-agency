@@ -71,9 +71,9 @@ const BRANDS = [
 
 // Proof screenshots - drop real revenue/dashboard screenshots at these paths.
 const PROOF = [
-  { img: "/story/proof-1.jpg", cap: "$2,000 in one day - pure organic (reels/shorts, $0 ads)" },
-  { img: "/story/proof-2.jpg", cap: "$500-700/day with no paid traffic" },
-  { img: "/story/proof-3.jpg", cap: "~$400,000 in 6 months on Google Ads" },
+  { img: "/story/proof-1.jpg", cap: "$11,801 in a single day - 67 orders" },
+  { img: "/story/proof-2.jpg", cap: "$7,659 in a day - 159 orders at 3% conversion" },
+  { img: "/story/proof-3.jpg", cap: "$2,824 in a day - up 85%" },
 ];
 
 // Replace each with a real student/client testimonial (photo + name + result).
@@ -252,12 +252,12 @@ export default function StoryPage() {
       {/* PROOF GALLERY */}
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-900 dark:bg-zinc-900/20 px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">Real results · last 30 days</p>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">Real client stores · real dashboards</p>
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">Numbers, not just words</h2>
           <div className="grid gap-5 md:grid-cols-3">
             {PROOF.map((p) => (
               <figure key={p.img} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-                <SmartImg src={p.img} alt={p.cap} className="aspect-[4/3] w-full object-cover" label="Revenue screenshot" />
+                <SmartImg src={p.img} alt={p.cap} className="aspect-[4/3] w-full bg-white object-contain" label="Revenue screenshot" />
                 <figcaption className="p-4 text-sm text-zinc-700 dark:text-zinc-300">{p.cap}</figcaption>
               </figure>
             ))}
