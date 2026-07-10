@@ -7,15 +7,16 @@ import { useForm, ValidationError } from "@formspree/react";
  * Reuses the site Formspree endpoint with a hidden `source` field so
  * story-apply leads are filterable from general contact submissions.
  * Flow: qualify here -> sales team follows up on WhatsApp -> ultra-hot -> call.
+ * Theme-aware (light default + dark:, follows device).
  */
 export default function ApplyForm() {
   const [state, handleSubmit] = useForm("xpqbdzow");
 
   if (state.succeeded) {
     return (
-      <div className="rounded-2xl border border-lime-400/40 bg-lime-400/5 p-8 text-center">
-        <div className="text-2xl font-bold text-white">You&apos;re in.</div>
-        <p className="mt-3 text-zinc-300">
+      <div className="rounded-2xl border border-lime-500/40 bg-lime-400/10 p-8 text-center dark:border-lime-400/40 dark:bg-lime-400/5">
+        <div className="text-2xl font-bold text-zinc-900 dark:text-white">You&apos;re in.</div>
+        <p className="mt-3 text-zinc-700 dark:text-zinc-300">
           Our team will reach out on WhatsApp shortly. In the meantime, here&apos;s your free blueprint:
         </p>
         <a
@@ -31,9 +32,9 @@ export default function ApplyForm() {
   }
 
   const inputCls =
-    "w-full rounded-lg border border-zinc-700 bg-zinc-900/60 px-4 py-3 text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-lime-400";
+    "w-full rounded-lg border border-zinc-300 bg-zinc-50 px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none transition-colors focus:border-lime-500 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-lime-400";
   const labelCls =
-    "mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-zinc-400";
+    "mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -43,19 +44,19 @@ export default function ApplyForm() {
         <div>
           <label htmlFor="name" className={labelCls}>Name</label>
           <input id="name" name="name" required className={inputCls} placeholder="Your name" />
-          <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1 text-xs text-red-400" />
+          <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1 text-xs text-red-500 dark:text-red-400" />
         </div>
         <div>
           <label htmlFor="email" className={labelCls}>Email</label>
           <input id="email" name="email" type="email" required className={inputCls} placeholder="you@email.com" />
-          <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-xs text-red-400" />
+          <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-xs text-red-500 dark:text-red-400" />
         </div>
       </div>
 
       <div>
         <label htmlFor="whatsapp" className={labelCls}>WhatsApp (with country code)</label>
         <input id="whatsapp" name="whatsapp" required className={inputCls} placeholder="+1 555 123 4567" />
-        <ValidationError prefix="WhatsApp" field="whatsapp" errors={state.errors} className="mt-1 text-xs text-red-400" />
+        <ValidationError prefix="WhatsApp" field="whatsapp" errors={state.errors} className="mt-1 text-xs text-red-500 dark:text-red-400" />
       </div>
 
       <div>
@@ -81,10 +82,10 @@ export default function ApplyForm() {
       <div>
         <label htmlFor="message" className={labelCls}>What&apos;s pulling you to this? (optional)</label>
         <textarea id="message" name="message" rows={3} className={inputCls} placeholder="A line or two about your situation and goal." />
-        <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-xs text-red-400" />
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-xs text-red-500 dark:text-red-400" />
       </div>
 
-      <ValidationError errors={state.errors} className="text-xs text-red-400" />
+      <ValidationError errors={state.errors} className="text-xs text-red-500 dark:text-red-400" />
 
       <button
         type="submit"

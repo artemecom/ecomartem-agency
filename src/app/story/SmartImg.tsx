@@ -23,12 +23,12 @@ export default function SmartImg({
   if (!ok) {
     return (
       <div
-        className={`flex items-center justify-center border border-dashed border-zinc-700 bg-zinc-900/40 text-center ${className}`}
+        className={`flex items-center justify-center border border-dashed border-zinc-300 bg-zinc-100 text-center dark:border-zinc-700 dark:bg-zinc-900/40 ${className}`}
       >
-        <span className="px-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-zinc-500">
+        <span className="px-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-zinc-400 dark:text-zinc-500">
           {label ?? "Add image"}
           <br />
-          <span className="text-zinc-600">{src}</span>
+          <span className="text-zinc-400 dark:text-zinc-600">{src}</span>
         </span>
       </div>
     );
