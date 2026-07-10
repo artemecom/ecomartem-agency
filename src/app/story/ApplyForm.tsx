@@ -54,8 +54,8 @@ export default function ApplyForm() {
         <label htmlFor="budget" className={labelCls}>Can you start with at least $5,000? (store + ad budget)</label>
         <select id="budget" name="budget" required defaultValue="" className={inputCls}>
           <option value="" disabled>Select one</option>
-          <option value="yes_5k_plus">Yes — $5,000 or more</option>
-          <option value="yes_3_5k">Around $3,000–5,000</option>
+          <option value="yes_5k_plus">Yes - $5,000 or more</option>
+          <option value="yes_3_5k">Around $3,000-5,000</option>
           <option value="not_yet">Not yet</option>
         </select>
       </div>
@@ -83,7 +83,7 @@ export default function ApplyForm() {
         disabled={state.submitting}
         className="mt-1 inline-flex items-center justify-center rounded-full bg-lime-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-lime-300 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {state.submitting ? "Sending…" : "Apply — talk to the team →"}
+        {state.submitting ? "Sending…" : "Apply - talk to the team →"}
       </button>
 
       <p className="text-center font-mono text-[11px] leading-relaxed text-zinc-500">
