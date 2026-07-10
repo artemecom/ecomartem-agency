@@ -327,18 +327,13 @@ export default function StoryPage() {
               { src: "/story/travel-6.jpg", tag: "Off-grid" },
               { src: "/story/travel-4.jpg", tag: "On the move" },
             ].map((p) => (
-              <figure key={p.src} className="group relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800/80">
+              <figure key={p.src} className="group overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800/80">
                 <SmartImg
                   src={p.src}
                   alt={p.tag}
                   className="aspect-[4/5] w-full object-cover brightness-95 grayscale-[40%] transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:brightness-100 group-hover:grayscale-0"
                   label="Photo"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-                <figcaption className="absolute bottom-0 left-0 flex items-center gap-2 p-3.5">
-                  <span className="h-1 w-1 rounded-full bg-lime-400" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/85">{p.tag}</span>
-                </figcaption>
               </figure>
             ))}
           </div>
