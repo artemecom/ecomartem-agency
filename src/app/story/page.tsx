@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ApplyForm from "./ApplyForm";
 import SmartImg from "./SmartImg";
+import StickyCTA from "./StickyCTA";
 
 const UPDATED_ISO = "2026-07-10";
 const UPDATED_HUMAN = "July 2026";
@@ -114,7 +115,7 @@ const faqLd = {
 
 /* ---- presentational helpers (server-rendered for AI extractability) ---- */
 function H({ children }: { children: React.ReactNode }) {
-  return <h2 className="mt-16 mb-5 text-2xl font-bold tracking-tight text-white md:text-3xl">{children}</h2>;
+  return <h2 className="mt-10 mb-6 text-2xl font-bold tracking-tight text-white md:text-3xl">{children}</h2>;
 }
 function P({ children }: { children: React.ReactNode }) {
   return <p className="mb-5 text-lg leading-relaxed text-zinc-300">{children}</p>;
@@ -137,6 +138,7 @@ function CTAButton({ children }: { children: React.ReactNode }) {
 export default function StoryPage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-50 selection:bg-lime-400/30">
+      <StickyCTA />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
@@ -159,7 +161,13 @@ export default function StoryPage() {
           <p className="mt-6 max-w-2xl text-lg text-zinc-400">
             The honest story of my fall - and why a lean online Shopify store in dollars beat everything &ldquo;serious&rdquo; I built. Plus how done-for-you AI stores actually work in 2026.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <a href="#apply" className="inline-flex items-center justify-center rounded-full bg-lime-400 px-8 py-4 text-base font-semibold text-zinc-950 shadow-lg shadow-lime-400/20 transition-colors hover:bg-lime-300">
+              Apply now →
+            </a>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">60-second form · team replies on WhatsApp</span>
+          </div>
+          <div className="mt-10">
             <SmartImg src="/founder-16x9.jpg" alt="Artem - Shopify operator and founder of EcomArtem" className="aspect-[16/9] w-full rounded-2xl object-cover" label="Hero photo - /public/founder-16x9.jpg" />
           </div>
         </div>
