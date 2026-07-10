@@ -76,11 +76,11 @@ const PROOF = [
   { img: "/story/proof-3.jpg", cap: "$2,824 in a day - up 85%" },
 ];
 
-// Replace each with a real student/client testimonial (photo + name + result).
-const TESTIMONIALS = [
-  { img: "/story/testi-1.jpg", name: "Student result", role: "e.g. first $10k month", quote: "Real testimonial goes here - a specific result in the student's own words." },
-  { img: "/story/testi-2.jpg", name: "Student result", role: "e.g. quit their job", quote: "Real testimonial goes here - a specific result in the student's own words." },
-  { img: "/story/testi-3.jpg", name: "Student result", role: "e.g. $X/day organic", quote: "Real testimonial goes here - a specific result in the student's own words." },
+// Real client dashboards (from our results channel) - no invented names, just verified numbers.
+const RESULTS = [
+  { img: "/story/result-1.jpg", cap: "$5,017 in the first three weeks - 138 orders" },
+  { img: "/story/result-2.jpg", cap: "$1,908 in a day - up 147%" },
+  { img: "/story/result-3.jpg", cap: "$8,914 in three weeks - 238 orders" },
 ];
 
 const articleLd = {
@@ -290,22 +290,17 @@ export default function StoryPage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* MORE RESULTS — real client dashboards, no names */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">What people say</h2>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">More client stores</p>
+          <h2 className="mb-8 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">It&apos;s a pattern, not luck</h2>
           <div className="grid gap-5 md:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40 p-6">
-                <p className="leading-relaxed text-zinc-800 dark:text-zinc-200">&ldquo;{t.quote}&rdquo;</p>
-                <div className="mt-auto flex items-center gap-3">
-                  <SmartImg src={t.img} alt={t.name} className="h-11 w-11 shrink-0 rounded-full object-cover" label="Photo" />
-                  <div>
-                    <div className="text-sm font-semibold text-zinc-900 dark:text-white">{t.name}</div>
-                    <div className="text-xs text-zinc-500">{t.role}</div>
-                  </div>
-                </div>
-              </div>
+            {RESULTS.map((r) => (
+              <figure key={r.img} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+                <SmartImg src={r.img} alt={r.cap} className="aspect-[4/3] w-full bg-white object-contain" label="Revenue screenshot" />
+                <figcaption className="p-4 text-sm text-zinc-700 dark:text-zinc-300">{r.cap}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
