@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: ["/founder-16x9.jpg"],
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/story/hero.jpg"] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/founder-16x9.jpg"] },
   robots: {
     index: true,
     follow: true,
