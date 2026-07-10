@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     siteName: "EcomArtem",
     type: "article",
     locale: "en_US",
-    images: ["/founder-16x9.jpg"],
+    images: ["/story/hero.jpg"],
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/founder-16x9.jpg"] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/story/hero.jpg"] },
   robots: {
     index: true,
     follow: true,
@@ -88,7 +88,7 @@ const articleLd = {
   "@type": "Article",
   headline: TITLE,
   description: DESCRIPTION,
-  image: ["https://ecomartem.com/founder-16x9.jpg"],
+  image: ["https://ecomartem.com/story/hero.jpg"],
   datePublished: UPDATED_ISO,
   dateModified: UPDATED_ISO,
   inLanguage: "en",
@@ -182,7 +182,7 @@ export default function StoryPage() {
             <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">60-second form · team replies on WhatsApp</span>
           </div>
           <div className="mt-10">
-            <SmartImg src="/founder-16x9.jpg" alt="Artem - Shopify operator and founder of EcomArtem" className="aspect-[16/9] w-full rounded-2xl object-cover" label="Hero photo - /public/founder-16x9.jpg" />
+            <SmartImg src="/story/hero.jpg" alt="Artem working on a laptop with a city skyline behind him" className="aspect-[16/9] w-full rounded-2xl object-cover object-top" label="Hero photo" />
           </div>
         </div>
       </section>
@@ -208,7 +208,7 @@ export default function StoryPage() {
         <P>By 2019, on my fourth or fifth attempt, I built the first store that had actual sales - not just a pretty website. That&apos;s when it clicked: don&apos;t build junk stores, build brands. From that point, Shopify started feeding me.</P>
 
         <div className="my-10 overflow-hidden rounded-2xl border border-zinc-800">
-          <SmartImg src="/founder-4x5.jpg" alt="Artem working" className="max-h-[520px] w-full object-cover" label="Photo - /public/founder-4x5.jpg" />
+          <SmartImg src="/story/life-work.jpg" alt="Artem working on a laptop at sunset" className="max-h-[560px] w-full object-cover" label="Photo" />
         </div>
 
         <P>Over the next years I built one of the largest e-commerce audiences in my native language, helped 5,000+ people build stores, and at my 2021-2022 peak I was making $300,000-400,000 a month - from my own stores and consulting. My team and I have now built over 1,500 stores.</P>
@@ -311,6 +311,25 @@ export default function StoryPage() {
         </div>
       </section>
 
+      {/* THE REAL POINT — freedom, framed (not a flex) */}
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-400">The real point</p>
+          <h2 className="mb-6 max-w-2xl text-2xl font-bold tracking-tight text-white md:text-3xl">
+            It was never about the stuff. It was the freedom to run it from anywhere.
+          </h2>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <SmartImg src="/story/travel-1.jpg" alt="Artem traveling in Rome" className="aspect-[3/4] w-full rounded-xl object-cover" label="Travel" />
+            <SmartImg src="/story/travel-2.jpg" alt="Artem working while traveling" className="aspect-[3/4] w-full rounded-xl object-cover" label="Travel" />
+            <SmartImg src="/story/travel-3.jpg" alt="Artem by Lake Como, Italy" className="aspect-[3/4] w-full rounded-xl object-cover" label="Travel" />
+            <SmartImg src="/story/travel-4.jpg" alt="Artem driving" className="aspect-[3/4] w-full rounded-xl object-cover" label="Travel" />
+          </div>
+          <p className="mt-5 max-w-2xl text-zinc-400">
+            A business in dollars, fully online, that doesn&apos;t need you at a desk buys one thing: options. That&apos;s the whole point - not the toys, the freedom that pays for them.
+          </p>
+        </div>
+      </section>
+
       {/* WHO IT'S FOR + RISKS */}
       <article className="mx-auto max-w-3xl px-6 py-6">
         <H>Who this is for</H>
@@ -334,7 +353,7 @@ export default function StoryPage() {
       {/* AUTHOR BOX */}
       <section className="px-6 py-14">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 text-center md:flex-row md:text-left">
-          <SmartImg src="/founder-4x5.jpg" alt="Artem K., founder of EcomArtem" className="h-24 w-24 shrink-0 rounded-full object-cover" label="Photo" />
+          <SmartImg src="/story/author.jpg" alt="Artem K., founder of EcomArtem" className="h-24 w-24 shrink-0 rounded-full object-cover" label="Photo" />
           <div>
             <div className="text-lg font-bold text-white">Artem K. - founder, EcomArtem</div>
             <p className="mt-2 text-zinc-400">Shopify operator since 2019. Built and helped build 1,500+ stores, trained 5,000+ people, and runs his own brands. Now putting AI into every step of building and scaling Shopify stores.</p>
