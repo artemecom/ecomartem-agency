@@ -240,6 +240,15 @@ export default function StoryPage() {
         <Pull>You invest less - and you get a product better than 90% of the market.</Pull>
         <GateCTA />
 
+        <H>Why this is the best business model I&apos;ve found in fifteen years</H>
+        <P>I&apos;ve built cosmetics brands, physical-product brands, IT products, games. I keep coming back to this one. Here&apos;s why it beats everything else I&apos;ve tried.</P>
+        <P><strong className="font-semibold text-zinc-900 dark:text-white">You sell to the richest buyers on earth.</strong> Your customers are in the US, UK and Western Europe - the most payment-ready audience in the world, paying in dollars. You&apos;re not fighting over a small local market with thin wallets; you&apos;re selling into the biggest, wealthiest one there is.</P>
+        <P><strong className="font-semibold text-zinc-900 dark:text-white">It runs from a laptop, from anywhere.</strong> No office, no warehouse, no staff you have to stand next to. A store you built in one country keeps selling while you&apos;re on the other side of the world. That isn&apos;t a perk - it&apos;s the whole point.</P>
+        <P><strong className="font-semibold text-zinc-900 dark:text-white">No inventory, almost no capital at risk.</strong> You don&apos;t buy stock in bulk and pray it sells. No warehouse full of dead money. You pay for the product after the customer pays you - which is why $5k is enough to start what used to need a factory.</P>
+        <P><strong className="font-semibold text-zinc-900 dark:text-white">It scales by turning a dial.</strong> Found a winner? You don&apos;t hire and you don&apos;t build a bigger warehouse - you turn up the ad budget and AI handles the rest. Growth is a number you increase, not a building you expand.</P>
+        <P><strong className="font-semibold text-zinc-900 dark:text-white">Crisis-proof by design.</strong> It isn&apos;t tied to one country&apos;s economy or one traffic source. Global market, dollar income, every ad channel open - Meta, Google, TikTok, organic. If one thing wobbles, you pivot the product or the market in a week.</P>
+        <Pull>Online, in dollars, from anywhere, with no inventory, and it scales like a volume knob. I looked for something better for six years. There isn&apos;t one.</Pull>
+
         <H>&ldquo;Then I&apos;ll just do it myself&rdquo; - and why that costs the most</H>
         <P>Right here you might think: &ldquo;If AI made it all this easy, why pay anyone? I&apos;ll build the store myself.&rdquo; And you&apos;d be right. Half right.</P>
         <P>In six years of running my own Shopify agency, I&apos;ve heard it dozens of times: &ldquo;Guys, that&apos;s expensive. It&apos;s 2026, there&apos;s AI, there are a thousand YouTube videos - I&apos;ll spin up a site in an evening.&rdquo;</P>
