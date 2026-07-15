@@ -99,10 +99,10 @@ export default function RuApplyForm() {
 
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 sm:p-8">
-      <h2 className="text-xl font-bold">Забрать PDF с моделью + разбор под тебя</h2>
+      <h2 className="text-xl font-bold">Забрать PDF: моя бизнес-модель на Shopify + AI (2026)</h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Оставь заявку - PDF придёт сразу, дальше команда разберёт твою ситуацию: магазин под ключ,
-        обучение или личный формат.
+        Бесплатно. Оставь заявку - PDF придёт сразу в чат, дальше команда разберёт твою ситуацию:
+        магазин под ключ, обучение или личный формат.
       </p>
 
       <form onSubmit={submit} className="mt-6 flex flex-col gap-5">
@@ -147,7 +147,7 @@ export default function RuApplyForm() {
           disabled={status === "sending"}
           className="inline-flex items-center justify-center rounded-full bg-lime-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-lime-300 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending" ? "Отправляю…" : "Получить PDF + разбор →"}
+          {status === "sending" ? "Отправляю…" : "Получить PDF бесплатно + разбор →"}
         </button>
 
         {status === "error" && (
