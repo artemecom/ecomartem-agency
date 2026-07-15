@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 /**
@@ -8,9 +9,59 @@ import { useForm, ValidationError } from "@formspree/react";
  * story-apply leads are filterable from general contact submissions.
  * Flow: qualify here -> sales team follows up on WhatsApp -> ultra-hot -> call.
  * Theme-aware (light default + dark:, follows device).
+ *
+ * Leads are mirrored to the ecom-engine webhook with first-touch UTM
+ * (fire-and-forget; Formspree stays the primary submit path).
  */
+const ENGINE_WEBHOOK = "https://shared-brain.tail048cfd.ts.net:10000/lead";
+const UTM_KEY = "ecom_utm";
+const UTM_PARAMS = ["src", "utm_source", "utm_medium", "utm_campaign", "utm_content", "v"];
+
+function captureUtm() {
+  try {
+    const p = new URLSearchParams(window.location.search);
+    const found: Record<string, string> = {};
+    for (const k of UTM_PARAMS) {
+      const v = p.get(k);
+      if (v) found[k] = v.slice(0, 100);
+    }
+    if (Object.keys(found).length) localStorage.setItem(UTM_KEY, JSON.stringify(found));
+  } catch {
+    /* storage unavailable — attribution is best-effort */
+  }
+}
+
+function sendToEngine(form: HTMLFormElement) {
+  try {
+    const f = new FormData(form);
+    let utm: Record<string, string> = {};
+    try {
+      utm = JSON.parse(localStorage.getItem(UTM_KEY) || "{}");
+    } catch {
+      /* noop */
+    }
+    const body = JSON.stringify({
+      market: "en",
+      name: f.get("name"),
+      contact: `${f.get("email") || ""} ${f.get("whatsapp") || ""}`.trim(),
+      message: `budget:${f.get("budget") || "?"} | exp:${f.get("experience") || "?"} | ${f.get("message") || ""}`,
+      utm: Object.keys(utm).length ? utm : { utm_source: "direct" },
+    });
+    fetch(ENGINE_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    /* never block the primary submit */
+  }
+}
+
 export default function ApplyForm() {
   const [state, handleSubmit] = useForm("xpqbdzow");
+
+  useEffect(captureUtm, []);
 
   if (state.succeeded) {
     return (
@@ -37,7 +88,13 @@ export default function ApplyForm() {
     "mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400";
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form
+      onSubmit={(e) => {
+        sendToEngine(e.currentTarget);
+        handleSubmit(e);
+      }}
+      className="flex flex-col gap-5"
+    >
       <input type="hidden" name="source" value="story-apply" />
 
       <div className="grid gap-5 sm:grid-cols-2">
