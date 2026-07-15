@@ -44,7 +44,7 @@ function sendToEngine(form: HTMLFormElement) {
       market: "en",
       name: f.get("name"),
       contact: `${f.get("email") || ""} ${f.get("whatsapp") || ""}`.trim(),
-      message: `budget:${f.get("budget") || "?"} | exp:${f.get("experience") || "?"} | ${f.get("message") || ""}`,
+      message: `budget:${f.get("budget") || "?"} | exp:${f.get("experience") || "?"} | convinced:${f.get("convinced") || "?"} | ${f.get("message") || ""}`,
       utm: Object.keys(utm).length ? utm : { utm_source: "direct" },
     });
     fetch(ENGINE_WEBHOOK, {
@@ -133,6 +133,18 @@ export default function ApplyForm() {
           <option value="complete_beginner">Complete beginner</option>
           <option value="tried_shopify_or_business">Tried Shopify / ran another business or freelance</option>
           <option value="have_store">Already have a running store</option>
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="convinced" className={labelCls}>What convinced you to apply?</label>
+        <select id="convinced" name="convinced" defaultValue="" className={inputCls}>
+          <option value="">Select one (optional)</option>
+          <option value="several_videos">I&apos;ve watched several of your videos</option>
+          <option value="one_video">One specific video</option>
+          <option value="article">This article</option>
+          <option value="referral">Someone recommended you</option>
+          <option value="other">Other</option>
         </select>
       </div>
 
