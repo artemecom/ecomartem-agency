@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  * the server validates the hash, sends the PDF into the user's bot chat
  * and notifies the sales team. Works in a plain browser too (fallback copy).
  */
-const ENGINE_WEBHOOK = "https://shared-brain.tail048cfd.ts.net:10000/lead";
+const ENGINE_WEBHOOK = "/api/lead";
 
 type TgWebApp = {
   ready: () => void;
@@ -71,7 +71,7 @@ export default function RuApplyForm() {
           utm: { src: src || "direct" },
           initData: tg?.initData || "",
         }),
-        keepalive: true,
+        signal: AbortSignal.timeout(15000),
       });
       setStatus(r.ok ? "done" : "error");
     } catch {
@@ -145,9 +145,9 @@ export default function RuApplyForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center justify-center rounded-full bg-lime-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-lime-300 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-2xl bg-lime-400 px-8 py-5 text-lg font-bold text-zinc-950 shadow-lg shadow-lime-500/40 ring-2 ring-lime-300 transition-all hover:bg-lime-300 hover:shadow-lime-400/60 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending" ? "Отправляю…" : "Получить PDF бесплатно + разбор →"}
+          {status === "sending" ? "Отправляю…" : "🎁 Получить PDF бесплатно + разбор"}
         </button>
 
         {status === "error" && (

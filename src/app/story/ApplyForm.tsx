@@ -13,7 +13,7 @@ import { useForm, ValidationError } from "@formspree/react";
  * Leads are mirrored to the ecom-engine webhook with first-touch UTM
  * (fire-and-forget; Formspree stays the primary submit path).
  */
-const ENGINE_WEBHOOK = "https://shared-brain.tail048cfd.ts.net:10000/lead";
+const ENGINE_WEBHOOK = "/api/lead";
 const UTM_KEY = "ecom_utm";
 const UTM_PARAMS = ["src", "utm_source", "utm_medium", "utm_campaign", "utm_content", "v"];
 
