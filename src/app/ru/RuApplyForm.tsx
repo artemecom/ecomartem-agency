@@ -99,7 +99,7 @@ export default function RuApplyForm() {
 
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50 sm:p-8">
-      <h2 className="text-xl font-bold">Забрать PDF: моя бизнес-модель на Shopify + AI (2026)</h2>
+      <h2 className="text-xl font-bold">Забрать PDF: Модель «Магазин-Агент» (Shopify + AI, 2026)</h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         Бесплатно. Оставь заявку - PDF придёт сразу в чат, дальше команда разберёт твою ситуацию:
         магазин под ключ, обучение или личный формат.
