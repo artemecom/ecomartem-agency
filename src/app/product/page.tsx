@@ -4,9 +4,9 @@ import PlaybookForm from "./PlaybookForm";
 import SmartImg from "../story/SmartImg";
 
 const URL = "https://ecomartem.com/product";
-const TITLE = "The $997 Organic Shopify Playbook - Free";
+const TITLE = "The $1,997 Organic Shopify Playbook - Free";
 const DESCRIPTION =
-  "The exact 7-year system I use to get Shopify customers without paying for every click. Gurus sell a worse version for $997. I'm giving you the real one free.";
+  "The exact 7-year system I use to get Shopify customers without paying for every click. Gurus sell a worse version for $1,997. I'm giving you the real one free.";
 
 export const metadata: Metadata = {
   title: `${TITLE} | EcomArtem`,
@@ -46,7 +46,7 @@ const PROOF = [
 ];
 
 const FAQ: { q: string; a: string }[] = [
-  { q: "Is it really free? What's the catch?", a: "Really free, no upsell to a paid course. Gurus sell a worse version of this for $997. I give the real one away because in 2026 information is cheap, and I only make money if you later use the tool I built or ask me to build your store. So I earn your trust first. That's the whole model." },
+  { q: "Is it really free? What's the catch?", a: "Really free, no upsell to a paid course. Gurus sell a worse version of this for $1,997. I give the real one away because in 2026 information is cheap, and I only make money if you later use the tool I built or ask me to build your store. So I earn your trust first. That's the whole model." },
   { q: "Will it stay free?", a: "For now. I may turn it into a paid product later or fold it into something bigger. If you're reading this, grab it while it's free." },
   { q: "Who is this for?", a: "Anyone building or running a Shopify store who's tired of guessing at traffic. Beginners get the full path; people with a store and no sales get the fix." },
   { q: "Do I need a budget?", a: "No. The whole point is organic-first: customers without paying for every click. You can start with the store you already have." },
@@ -82,13 +82,13 @@ export default function ProductPage() {
         <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
           <div>
             <p className="mb-5 inline-block rounded-full border border-lime-500/40 bg-lime-400/10 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">
-              Normally a $997 playbook · yours free
+              Normally a $1,997 playbook · yours free
             </p>
             <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-zinc-900 dark:text-white md:text-5xl">
-              I&apos;m giving away my $997 Shopify playbook. For free.
+              I&apos;m giving away my $1,997 Shopify playbook. For free.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              The exact 7-year system I use to get customers without paying for every click. Gurus gate a worse version behind $997. I&apos;m handing you the real one for $0.
+              The exact 7-year system I use to get customers without paying for every click. Gurus gate a worse version behind $1,997. I&apos;m handing you the real one for $0.
             </p>
             <p className="mt-4 text-sm font-semibold text-zinc-800 dark:text-zinc-200">
               Heads up: this won&apos;t be free forever. Grab it while it is.
@@ -156,7 +156,7 @@ export default function ProductPage() {
           </div>
           <div className="mt-5 flex flex-col items-start justify-between gap-4 rounded-2xl border border-lime-500/30 bg-lime-400/10 p-5 dark:border-lime-400/30 dark:bg-lime-400/5 sm:flex-row sm:items-center">
             <div>
-              <div className="text-sm text-zinc-600 line-through dark:text-zinc-400">What gurus charge for this: $997</div>
+              <div className="text-sm text-zinc-600 line-through dark:text-zinc-400">What gurus charge for this: $1,997</div>
               <div className="text-2xl font-bold text-zinc-900 dark:text-white">Your price today: Free</div>
             </div>
             <a href="#get" className="shrink-0 rounded-full bg-lime-400 px-6 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300">Claim it →</a>
@@ -190,9 +190,9 @@ export default function ProductPage() {
               <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">Wait, what&apos;s the catch?</p>
               <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">Look, I know what you&apos;re thinking.</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
-                <p>&ldquo;Nobody gives away a $997 system for free. Where&apos;s the upsell?&rdquo; Fair. So let me spill it.</p>
+                <p>&ldquo;Nobody gives away a $1,997 system for free. Where&apos;s the upsell?&rdquo; Fair. So let me spill it.</p>
                 <p>In 2026 information is cheap and AI can build a store for you. A course isn&apos;t worth what gurus pretend. I make money two ways only: if the playbook helps and you want the tool I use for traffic, or you want me to build your store personally. Both happen only <strong className="text-zinc-900 dark:text-white">after</strong> I&apos;ve actually helped you.</p>
-                <p>So there&apos;s no $4k program at the end. No pressure. I give you the real thing, earn your trust, and win only when you win. That&apos;s the opposite of the guru who gates it behind $997.</p>
+                <p>So there&apos;s no $4k program at the end. No pressure. I give you the real thing, earn your trust, and win only when you win. That&apos;s the opposite of the guru who gates it behind $1,997.</p>
                 <p className="font-semibold text-zinc-900 dark:text-white">That&apos;s the whole catch. I hate hidden ones too.</p>
               </div>
               <div className="mt-6">
@@ -260,7 +260,7 @@ export default function ProductPage() {
       {/* 10. GET IT — re-anchor + form */}
       <section id="get" className="scroll-mt-20 px-6 py-16 md:py-24">
         <div className="mx-auto max-w-xl text-center">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">$997 value · your price: free</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">$1,997 value · your price: free</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-4xl">Claim your free playbook</h2>
           <p className="mx-auto mt-4 mb-8 max-w-md text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
             Two quick answers and your email. Instant access, online and PDF, plus a copy in your inbox. No card, no strings. And it won&apos;t be free forever.
