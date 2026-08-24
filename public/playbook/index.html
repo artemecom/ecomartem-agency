@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Organic Shopify Playbook — EcomArtem</title>
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141418; --panel2:#1b1b20; --line:#26262c;
+    --text:#e9e9ec; --muted:#9a9aa2; --lime:#a3e635; --lime2:#84cc16;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 26px}
+  a{color:var(--lime)}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--lime)}
+  h1{font-size:52px;line-height:1.05;letter-spacing:-.02em;margin:.2em 0 .3em;font-weight:800}
+  h2{font-size:30px;line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em;font-weight:800}
+  h3{font-size:19px;margin:1.4em 0 .4em;font-weight:700}
+  p{margin:0 0 1em;color:#d6d6db}
+  .muted{color:var(--muted)}
+  .lime{color:var(--lime)}
+  strong{color:#fff}
+
+  /* cover */
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:64px 0;position:relative;overflow:hidden}
+  .cover .photo{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;margin-top:28px;
+    border:1px solid var(--line)}
+  .badge{display:inline-block;border:1px solid rgba(163,230,53,.4);background:rgba(163,230,53,.08);
+    color:var(--lime);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;margin-bottom:18px}
+
+  /* sections */
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+    border-radius:12px;background:var(--lime);color:#0a0a0b;font-weight:800;font-size:18px;margin-bottom:16px}
+
+  /* pull quote */
+  blockquote{margin:26px 0;padding:4px 0 4px 22px;border-left:3px solid var(--lime);
+    font-size:22px;line-height:1.35;font-weight:700;color:#fff}
+
+  /* callout / template box */
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:22px 0}
+  .box .mono{margin-bottom:10px;display:block}
+  .check{list-style:none;padding:0;margin:0}
+  .check li{padding:7px 0 7px 30px;position:relative;color:#d6d6db}
+  .check li:before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;border-radius:4px;
+    border:2px solid var(--lime)}
+  .tmpl{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#c9c9cf;white-space:pre-wrap}
+
+  /* figures */
+  figure{margin:24px 0}
+  figure img{width:100%;border-radius:14px;border:1px solid var(--line);background:#fff;display:block}
+  figure.dark img{background:var(--panel)}
+  figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+  .grid{display:grid;gap:16px}
+  .grid.g3{grid-template-columns:repeat(3,1fr)}
+  .grid.g2{grid-template-columns:repeat(2,1fr)}
+  .grid figure{margin:0}
+  .grid img{aspect-ratio:4/3;object-fit:contain}
+  .cases img{aspect-ratio:4/3;object-fit:cover;background:var(--panel)}
+  .store img{aspect-ratio:3/4;object-fit:cover;object-position:top;background:#fff}
+
+  /* cta */
+  .cta{display:inline-block;background:var(--lime);color:#0a0a0b;font-weight:700;text-decoration:none;
+    border-radius:999px;padding:15px 30px;margin-top:8px}
+  .final{background:linear-gradient(180deg,var(--panel),#0d0d0f);border:1px solid var(--line);
+    border-radius:22px;padding:44px 34px;text-align:center;margin:20px 0}
+
+  .toc{columns:2;column-gap:34px}
+  .toc a{display:block;color:#d6d6db;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+  .toc a b{color:var(--lime);font-family:ui-monospace,monospace;margin-right:8px}
+
+  @media (max-width:640px){
+    h1{font-size:34px} h2{font-size:24px} .grid.g3,.grid.g2,.toc{grid-template-columns:1fr;columns:1}
+  }
+  @media print{
+    :root{--bg:#0a0a0b}
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cover{min-height:auto;padding:20px 0}
+    section{break-inside:avoid-page;padding:26px 0}
+    h2{break-after:avoid} figure,.box,blockquote{break-inside:avoid}
+    .no-print{display:none}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <header class="cover">
+    <div class="badge">Free playbook · No paid course behind it</div>
+    <div class="mono">EcomArtem · Shopify operator since 2019</div>
+    <h1>The Organic<br>Shopify Playbook</h1>
+    <p style="font-size:20px;max-width:640px" class="muted">
+      How I get customers for a Shopify store <strong>without paying for every click</strong>.
+      7 years. Real stores. No fluff.
+    </p>
+    <img class="photo" src="/founder-16x9.jpg" alt="Artem, founder of EcomArtem">
+    <p class="muted" style="margin-top:22px;font-size:15px">
+      Free, and there is no upsell to a paid course. This is the real thing. If you get value, the only ask
+      is you follow along and maybe one day let me build your store for you. That is the whole funnel.
+      I hate hidden ones too.
+    </p>
+  </header>
+
+  <!-- READ FIRST -->
+  <section>
+    <div class="mono">Read this first · 2 minutes</div>
+    <h2>The store is the easy 20%.</h2>
+    <p>I am Artem. I have run Shopify stores for 7 years, out of Russia, which is why you have probably never
+      seen me. I have made good money and I have lit money on fire. I once spent a full ad budget across four
+      platforms and got zero sales. I will show you exactly why so you do not repeat it.</p>
+    <p>The one belief this whole playbook is built on:</p>
+    <blockquote>In 2026 the store is the easy 20%. Distribution is the 80% nobody wants to hear about.</blockquote>
+    <p>AI will build you a store before lunch. That used to be the moat. It is not anymore. The moat now is
+      whether you can make a stranger care without paying for every single click. That skill separates the
+      stores that die in 90 days from the ones that print for years.</p>
+    <div class="box">
+      <span class="mono">How to use it</span>
+      Do one module, do the action, then the next. A playbook you act on beats a course you finish.
+    </div>
+    <div class="toc" style="margin-top:26px">
+      <a href="#m1"><b>01</b> The truth about ecom in 2026</a>
+      <a href="#m2"><b>02</b> Build the store fast, and right</a>
+      <a href="#m3"><b>03</b> Nail the offer before traffic</a>
+      <a href="#m4"><b>04</b> The traffic system (the real 80%)</a>
+      <a href="#m5"><b>05</b> Produce content daily without burnout</a>
+      <a href="#m6"><b>06</b> Be visible to the AI agents too</a>
+      <a href="#m7"><b>07</b> Measure what actually matters</a>
+      <a href="#m8"><b>08</b> When to scale (and get help)</a>
+      <a href="#m9"><b>09</b> Templates and swipe pack</a>
+    </div>
+  </section>
+
+  <!-- M1 -->
+  <section id="m1">
+    <div class="num">01</div>
+    <h2>The truth about ecom in 2026</h2>
+    <p>Three shifts that change everything. Internalize these and you are ahead of 90% of people starting stores.</p>
+    <h3>1. The product is commoditized.</h3>
+    <p>Anyone can source the same product and spin up the same store with AI. &ldquo;I found a winning product&rdquo;
+      is no longer an advantage. It is table stakes. The advantage is attention.</p>
+    <h3>2. Paid ads are rent, organic is an asset.</h3>
+    <p>Ads work, but the second you stop paying, the traffic stops. Organic content compounds: a good post keeps
+      working for months and the next one stacks on top. Rich people own assets. Same rule, applied to attention.</p>
+    <h3>3. Agentic commerce is coming fast.</h3>
+    <p>Your customers are starting to ask AI agents &ldquo;find me the best X under $50&rdquo; and buying what the
+      agent surfaces. In 12 months a big chunk of buyers will not visit your store at all. Stores built to be
+      understood by both humans and agents win the next wave.</p>
+    <blockquote>Stop obsessing over the product and the theme. Start obsessing over distribution.</blockquote>
+    <figure class="dark">
+      <img src="/story/proof-1.jpg" alt="Revenue dashboard, single day">
+      <figcaption>Real dashboard from one of our stores: $11,801 in a single day, 67 orders. Distribution, not luck.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M2 -->
+  <section id="m2">
+    <div class="num">02</div>
+    <h2>Build the store fast, and right</h2>
+    <p>Do not spend three weeks here. A clean, trustworthy store that converts, live in a day or two. Then get to
+      the real work.</p>
+    <h3>Pick the niche for distribution, not just margin</h3>
+    <p>Before the product, ask: can I make interesting content about this every day for 6 months? A product you
+      cannot make content about is a dead store no matter how good it is.</p>
+    <h3>The setup that actually moves conversion</h3>
+    <div class="box">
+      <span class="mono">Store launch checklist</span>
+      <ul class="check">
+        <li>One clear promise above the fold (what, who for, why better)</li>
+        <li>Real product photos or video, not just supplier stock</li>
+        <li>3+ reviews visible on the product page</li>
+        <li>Fast, obvious checkout: express pay on, mobile-first</li>
+        <li>A genuine reason to buy now (bundle, drop, shipping timeline)</li>
+        <li>Shipping and returns stated plainly</li>
+        <li>Pixel and analytics installed</li>
+      </ul>
+    </div>
+    <p><strong>What does not matter yet:</strong> a custom theme, a paid logo, 40 products. One hero product, one
+      clean page, live. Refine after real traffic tells you what is wrong.</p>
+    <div class="grid g3 cases" style="margin-top:22px">
+      <figure><img src="/cases/arthouses.jpg" alt="ArtHouses"><figcaption>ArtHouses</figcaption></figure>
+      <figure><img src="/cases/rainrunner.jpg" alt="RainRunner"><figcaption>RainRunner</figcaption></figure>
+      <figure><img src="/cases/lumena.jpg" alt="Lumena"><figcaption>Lumena</figcaption></figure>
+    </div>
+    <figcaption class="muted">A few of the brands we have built. Real stores, not shelf junk.</figcaption>
+  </section>
+
+  <!-- M3 -->
+  <section id="m3">
+    <div class="num">03</div>
+    <h2>Nail the offer before you touch traffic</h2>
+    <p>The most expensive mistake in ecom: pouring traffic onto an offer that does not convert. That is how I
+      burned that budget to zero sales. The traffic was not the problem. The offer was not ready.</p>
+    <blockquote>Your first 100 orders teach you the offer. Until you get sales from a little traffic, do not scale.</blockquote>
+    <p>A leaky bucket does not need more water. It needs patching.</p>
+    <div class="box">
+      <span class="mono">Offer template</span>
+      <div class="tmpl">For [who], [product] gives you [outcome] without [the pain].
+Proof: [reviews / demo / numbers].
+[Bundle / price] + [guarantee] + [reason to buy now].</div>
+    </div>
+    <p>If you cannot fill every line honestly, the offer is not ready. Fix it before Module 4.</p>
+    <figure class="dark">
+      <img src="/story/result-1.jpg" alt="Client store first weeks">
+      <figcaption>Client store, first three weeks: $5,017, 138 orders. The offer converted before we scaled spend.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M4 -->
+  <section id="m4">
+    <div class="num">04</div>
+    <h2>The traffic system (the real 80%)</h2>
+    <p>This is the whole game. Read it twice.</p>
+    <h3>Rule 1: Organic first, one channel, go deep.</h3>
+    <p>Pick the ONE platform where your buyer already scrolls. Five platforms done badly loses to one done well.
+      Master one, then clone.</p>
+    <h3>Rule 2: Content earns the view, it does not buy it.</h3>
+    <p>An ad buys a guaranteed view and sells hard. Organic has to earn the view with a hook and hold it with
+      retention, and if it smells like an ad, the algorithm kills the reach.</p>
+    <div class="box">
+      <span class="mono">The organic formula</span>
+      <ul class="check">
+        <li>Hook first: stop the scroll in the first 1-2 seconds / first line</li>
+        <li>Retention before the product: lead with something worth watching</li>
+        <li>Native, not glossy: phone-shot energy beats studio-ad energy</li>
+        <li>CTA in the caption or comments, never a &ldquo;SHOP NOW&rdquo; hammer on the video</li>
+      </ul>
+    </div>
+    <h3>Rule 3: Cadence beats intensity.</h3>
+    <p>3-5 pieces a week for 6 months beats one viral swing. Month 2 is quiet for everyone. The people who win
+      just do not stop.</p>
+    <div class="box">
+      <span class="mono">Hook bank · steal structures, not words</span>
+      <div class="tmpl">"Most [people in niche] do X. It is killing their [result]."
+"I spent [time/money] learning this so you do not have to."
+"Nobody talks about why [common thing] actually [surprising outcome]."
+"Stop doing [common advice]. Do this instead."
+"[Number] [things] that [outcome] (most miss #[n])."</div>
+    </div>
+    <figure class="dark">
+      <img src="/story/result-3.jpg" alt="Client store three weeks">
+      <figcaption>Same system, another store: $8,914 in three weeks, 238 orders. It is a pattern, not luck.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M5 -->
+  <section id="m5">
+    <div class="num">05</div>
+    <h2>Produce content daily without burnout</h2>
+    <p>The traffic system only works if you can actually produce content every day. Most people quit here. This
+      is how you do not.</p>
+    <blockquote>Automate the hands. Keep the head.</blockquote>
+    <p><strong>Automate:</strong> research, first drafts, resizing, subtitles, variations, scheduling prep, turning
+      your catalog into video. <strong>Never automate:</strong> the hook, the point of view, and the reply in the
+      first hour. That is what makes a stranger trust you. A fully automated account gets flagged and dies. You
+      post by hand, always.</p>
+    <h3>The hard part: product video at volume</h3>
+    <p>I stopped hand-making every clip. I connect my store catalog to a tool that turns my actual products into
+      organic-style short videos, and it learns from what performs and feeds the next batch. It is called
+      <strong>CartViral</strong>. It does not auto-post (a ban risk that kills reach). It generates the clips, I
+      pick and post them myself, and the next wave gets smarter from the numbers. It gives me the volume so I can
+      keep the judgment.</p>
+    <div class="grid g2">
+      <figure class="dark"><img src="/playbook/cv-3.png" alt="Catalog synced"><figcaption>Connect the catalog. The engine scores which products to push by sales signal.</figcaption></figure>
+      <figure class="dark"><img src="/playbook/cv-4.png" alt="Studio generate"><figcaption>Pick a clip type, generate organic-style video from the real product.</figcaption></figure>
+    </div>
+    <figure class="dark"><img src="/playbook/cv-5.png" alt="Export and post by hand"><figcaption>Export the clip with caption and hashtags. You post it by hand. The wave learns from the stats.</figcaption></figure>
+    <div class="box">
+      <span class="mono">The weekly rhythm · steal it</span>
+      <ul class="check">
+        <li>Mon: pull trends, pick angles for the week (30 min)</li>
+        <li>Daily: 1 short video + 1 text post, posted by hand, reply in the first hour</li>
+        <li>2x/week: 1 carousel</li>
+        <li>Fri: look at the numbers, keep what worked, cut what did not</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- M6 -->
+  <section id="m6">
+    <div class="num">06</div>
+    <h2>Be visible to the AI agents too</h2>
+    <p>Most store owners have not noticed this yet, which is exactly why it is an opening.</p>
+    <p>When a buyer asks an AI agent to shop for them, the agent reads your product data and your content. Rich,
+      specific, consistent, and you show up. Thin supplier defaults, and you are invisible to the fastest-growing
+      buyer online.</p>
+    <div class="box">
+      <ul class="check">
+        <li>Write real, specific product descriptions (benefits + details), not supplier copy</li>
+        <li>Keep content and catalog consistent (same product framing everywhere)</li>
+        <li>Clean, structured product data</li>
+      </ul>
+    </div>
+    <p>The same content that makes your clips also feeds agent visibility. One asset, two audiences: humans in the
+      feed and agents doing the shopping.</p>
+  </section>
+
+  <!-- M7 -->
+  <section id="m7">
+    <div class="num">07</div>
+    <h2>Measure what actually matters</h2>
+    <p>Vanity kills focus. I once had a post do 400k views and make me nothing, then a boring one made 40 grand.
+      Reach is not revenue.</p>
+    <div class="box">
+      <span class="mono">Track only these, weekly</span>
+      <ul class="check">
+        <li>Revenue and orders (the only truth)</li>
+        <li>Conversion rate on your product page (is the offer working)</li>
+        <li>Which content drove profile visits and link clicks (which angle sells)</li>
+        <li>Cost to acquire, even organic has a time cost</li>
+      </ul>
+    </div>
+    <blockquote>Motivation is a scam. A moving number is fuel. Never work more than a week without evidence.</blockquote>
+  </section>
+
+  <!-- M8 -->
+  <section id="m8">
+    <div class="num">08</div>
+    <h2>When to scale (and when to get help)</h2>
+    <p><strong>Add paid ads only after organic proves the offer converts.</strong> Paid then pours fuel on a fire
+      that is already lit, instead of lighting money on fire (my mistake, do not repeat it). Retarget the audience
+      your organic built first. It is the cheapest money in ecom.</p>
+    <p><strong>When to get help:</strong> if the store works but you are the bottleneck, or you want it done right
+      the first time without the 7-year learning curve, a done-for-you build makes sense. I personally build a
+      small number of stores for people each month, end to end, the same system in this playbook. Fewer clients,
+      done properly.</p>
+    <figure class="dark">
+      <img src="/story/proof-2.jpg" alt="Scaled day">
+      <figcaption>A scaled day: $7,659, 159 orders at 3% conversion. Paid poured on top of an offer that already worked.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M9 -->
+  <section id="m9">
+    <div class="num">09</div>
+    <h2>Templates and swipe pack</h2>
+    <p>Everything above, in copy-paste form.</p>
+    <div class="box">
+      <span class="mono">Content angle starters · fill with your product</span>
+      <div class="tmpl">The mistake most buyers make with [product category]
+What nobody tells you about [product / niche]
+Why I [strong opinion about the niche]
+[Product] vs [the common alternative]: the real difference
+How to [get the outcome] without [the pain]</div>
+    </div>
+    <div class="box">
+      <span class="mono">Caption skeleton</span>
+      <div class="tmpl">[1-line hook that stands alone]
+[2-3 lines of value or story]
+[soft CTA: comment KEYWORD / link in bio]
+[3-5 relevant hashtags]</div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof">
+    <div class="mono">Proof, not theory</div>
+    <h2>Real stores. Real brands.</h2>
+    <p>Everything in here comes from building actual stores, not a slide deck. A few we have built and run:</p>
+    <div class="grid g3 store">
+      <figure><img src="/playbook/store-arthouses.jpg" alt="ArtHouses storefront"><figcaption>ArtHouses — premium lighting and home. DACH / EU.</figcaption></figure>
+      <figure><img src="/playbook/store-rainrunner.jpg" alt="RainRunner storefront"><figcaption>RainRunner — eco raincoats. £54.90, 5/5 rated. UK / EU.</figcaption></figure>
+      <figure><img src="/playbook/store-lumena.jpg" alt="Lumena storefront"><figcaption>Lumena — ocean lamps and speakers. 5,000+ customers.</figcaption></figure>
+    </div>
+    <div class="box" style="margin-top:26px">
+      <div style="display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;text-align:center">
+        <div><div class="lime" style="font-size:30px;font-weight:800">1,500+</div><div class="muted" style="font-size:13px">stores built</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">5,000+</div><div class="muted" style="font-size:13px">people trained</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">7 yrs</div><div class="muted" style="font-size:13px">since 2019</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">$11,801</div><div class="muted" style="font-size:13px">top single day</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH ME -->
+  <section id="work">
+    <div class="mono">Or skip the learning curve</div>
+    <h2>Want me to just build it for you?</h2>
+    <p>You now have the whole system. But knowing it and executing it flawlessly are two different things.
+      First-time builders routinely burn <strong>$10,000-15,000</strong> on ads before their first real sale.
+      I have built 1,500+ stores. When I build yours, you skip the expensive years.</p>
+    <h3>What it is</h3>
+    <p>I personally build your store end to end: product, store, offer, the traffic system, and the content stack,
+      on 7 years of experience. Not a course, not a curator handing you videos. Me. Fewer clients, done properly,
+      to a higher standard.</p>
+    <div class="box">
+      <span class="mono">Why it beats going solo</span>
+      <ul class="check">
+        <li>Built on 1,500+ stores, so every mistake is already tested and skipped</li>
+        <li>A real brand, not shelf junk: proper store, offer, and content from day one</li>
+        <li>The exact system in this playbook, executed for you</li>
+        <li>You keep an asset you own, in dollars, that runs from a laptop</li>
+      </ul>
+    </div>
+    <figure class="dark">
+      <img src="/story/result-2.jpg" alt="Client store result">
+      <figcaption>A client store we built: $1,908 in a day, up 147%. Built on the same system, executed properly.</figcaption>
+    </figure>
+
+    <div class="final">
+      <div class="mono">Free · no pitch</div>
+      <h2 style="margin-top:10px">Get a free store breakdown</h2>
+      <p class="muted" style="max-width:580px;margin:0 auto 22px">
+        Tell me where you are and what you want. I will look at your situation and tell you honestly whether a
+        done-for-you build makes sense for you. If it is not a fit, I will say so. No hard sell, just a real answer
+        from someone who has done this for 7 years.
+      </p>
+      <a class="cta" href="https://ecomartem.com/story#apply">Book my free breakdown →</a>
+      <p class="muted" style="margin-top:16px;font-size:13px">Or just reply to the email this playbook came in.</p>
+    </div>
+    <p class="muted" style="text-align:center;font-size:15px">
+      The store is the easy 20%. Whether you do it yourself or with me, go win the 80%.<br>— Artem
+    </p>
+    <p class="mono" style="text-align:center;margin-top:24px">EcomArtem · Shopify operator since 2019 · ecomartem.com</p>
+  </section>
+
+</div>
+</body>
+</html>
