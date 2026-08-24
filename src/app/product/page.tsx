@@ -139,14 +139,14 @@ export default function ProductPage() {
               Heads up: this won&apos;t be free forever. Grab it while it is.
             </p>
             <div className="mt-7"><CTA sub="Instant access · in your inbox too" /></div>
-            <div className="mt-7 flex items-center gap-3">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="h-9 w-9 rounded-full border-2 border-white bg-gradient-to-br from-zinc-300 to-zinc-400 dark:border-zinc-950 dark:from-zinc-600 dark:to-zinc-700" />
-                ))}
-              </div>
-              <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                Learned by <strong className="text-zinc-900 dark:text-white">5,000+ operators</strong>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-lime-400" />
+                Trained <strong className="text-zinc-900 dark:text-white">5,000+ operators</strong>
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-lime-400" />
+                <strong className="text-zinc-900 dark:text-white">1,500+ stores</strong> built
               </span>
             </div>
           </div>
