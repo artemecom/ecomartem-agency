@@ -65,6 +65,18 @@
   .cases img{aspect-ratio:4/3;object-fit:cover;background:var(--panel)}
   .store img{aspect-ratio:3/4;object-fit:cover;object-position:top;background:#fff}
 
+  /* tool cards */
+  .grp{margin:24px 0 8px;font-weight:800;font-size:18px;color:#fff}
+  .tools{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:12px 0}
+  .tool{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .tool .tname{font-weight:700;color:#fff;font-size:15px;text-decoration:none}
+  .tool .tname:hover{color:var(--lime)}
+  .tool .pill{font-family:ui-monospace,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--lime);border:1px solid rgba(163,230,53,.35);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle}
+  .tool p{margin:7px 0 0;font-size:13px;color:#b9b9c0;line-height:1.45}
+  .tool .price{margin-top:7px;font-size:12px;color:var(--muted)}
+  @media(max-width:640px){.tools{grid-template-columns:1fr}}
+
   /* cta */
   .cta{display:inline-block;background:var(--lime);color:#0a0a0b;font-weight:700;text-decoration:none;
     border-radius:999px;padding:15px 30px;margin-top:8px}
@@ -79,13 +91,16 @@
     h1{font-size:34px} h2{font-size:24px} .grid.g3,.grid.g2,.toc{grid-template-columns:1fr;columns:1}
   }
   @media print{
-    :root{--bg:#0a0a0b}
     body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .cover{min-height:auto;padding:20px 0}
-    section{break-inside:avoid-page;padding:26px 0}
-    h2{break-after:avoid} figure,.box,blockquote{break-inside:avoid}
+    .cover{min-height:auto;padding:14px 0}
+    section{padding:18px 0}
+    /* только атомарные блоки держим целыми — секции текут по страницам, без пустот */
+    figure,.box,blockquote,.final,.grid,ul.check,.tool{break-inside:avoid}
+    h2,h3{break-after:avoid}
+    figure img{max-height:82vh;object-fit:contain}
+    .num{break-after:avoid}
     .no-print{display:none}
-    @page{margin:14mm}
+    @page{margin:12mm}
   }
 </style>
 </head>
@@ -190,6 +205,71 @@
       <figure><img src="/cases/lumena.jpg" alt="Lumena"><figcaption>Lumena</figcaption></figure>
     </div>
     <figcaption class="muted">A few of the brands we have built. Real stores, not shelf junk.</figcaption>
+  </section>
+
+  <!-- TOOLBOX -->
+  <!-- NOTE (Artem): links point to official sites. Before publishing, swap each href for YOUR affiliate link. -->
+  <section id="toolbox">
+    <div class="mono">The toolbox · what I actually use</div>
+    <h2>Stop guessing which app to use</h2>
+    <p>The system above is worth nothing if you stall on &ldquo;which tool.&rdquo; Here is my stack, by stage. I only
+      list tools I would actually use, and every one has a free trial or a free tier so you can start today.</p>
+
+    <div class="grp">1 · Find a winning product</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://www.sellthetrend.com" target="_blank" rel="noopener">Sell The Trend <span class="pill">all-in-one</span></a>
+        <p>AI scans AliExpress, TikTok and Amazon for trending products and shows real demand. Best beginner research suite.</p>
+        <div class="price">Free trial · from ~$30/mo</div></div>
+      <div class="tool"><a class="tname" href="https://winninghunter.com" target="_blank" rel="noopener">Winning Hunter <span class="pill">tiktok/fb spy</span></a>
+        <p>Spy on live TikTok and Facebook ad creatives, see what is scaling right now. What the creators you see are using.</p>
+        <div class="price">Free tier · from ~$49/mo</div></div>
+      <div class="tool"><a class="tname" href="https://dropship.io" target="_blank" rel="noopener">Dropship.io <span class="pill">sales spy</span></a>
+        <p>Track real-time sales on any Shopify store to validate a product before you commit. Clean, beginner-friendly.</p>
+        <div class="price">$1 trial · from ~$39/mo</div></div>
+    </div>
+
+    <div class="grp">2 · Build the store fast (AI)</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://gempages.net" target="_blank" rel="noopener">GemPages <span class="pill">ai pages</span></a>
+        <p>AI builds conversion-ready product and landing pages from a prompt or a reference. The page builder most stores run.</p>
+        <div class="price">Free plan · paid from ~$23/mo</div></div>
+      <div class="tool"><a class="tname" href="https://www.shopify.com" target="_blank" rel="noopener">Shopify Magic + Sidekick <span class="pill">native ai</span></a>
+        <p>Built into Shopify: AI writes copy, makes images, and Sidekick edits the store by chat. No extra app needed to start.</p>
+        <div class="price">Included · Shopify from $1 first month</div></div>
+      <div class="tool"><a class="tname" href="https://storebuild.ai" target="_blank" rel="noopener">Storebuild.ai <span class="pill">free · fastest</span></a>
+        <p>Pick a niche, AI generates a full store pre-loaded with products in minutes. Zero cost to get something live today.</p>
+        <div class="price">Free to generate</div></div>
+    </div>
+
+    <div class="grp">3 · Source and import products</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://www.spocket.co" target="_blank" rel="noopener">Spocket <span class="pill">us/eu · fast ship</span></a>
+        <p>Suppliers that ship from the US and EU, so delivery is days not weeks. Branded invoicing. Best for a real US brand.</p>
+        <div class="price">Free trial · from ~$40/mo</div></div>
+      <div class="tool"><a class="tname" href="https://www.dsers.com" target="_blank" rel="noopener">DSers <span class="pill">free · aliexpress</span></a>
+        <p>The free default for AliExpress order management (it replaced Oberlo). Best when starting cheap before US suppliers.</p>
+        <div class="price">Free plan</div></div>
+      <div class="tool"><a class="tname" href="https://www.zendrop.com" target="_blank" rel="noopener">Zendrop <span class="pill">branding</span></a>
+        <p>Fast US products, custom packaging and branded inserts, auto-fulfillment. Turns a dropship store into a real brand.</p>
+        <div class="price">Free tier · Pro ~$49/mo</div></div>
+    </div>
+
+    <div class="grp">4 · Make it convert (the apps I install)</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://vitals.app" target="_blank" rel="noopener">Vitals <span class="pill">all-in-one</span></a>
+        <p>40+ conversion tools in one app: reviews, upsells, bundles, and more. The cheapest way to cover everything at once.</p>
+        <div class="price">$29.99/mo · long free trial</div></div>
+      <div class="tool"><a class="tname" href="https://loox.io" target="_blank" rel="noopener">Loox <span class="pill">photo reviews</span></a>
+        <p>Photo and video reviews with automated requests. Visual social proof is the single biggest trust lever on a PDP.</p>
+        <div class="price">Free plan · from ~$10/mo</div></div>
+      <div class="tool"><a class="tname" href="https://www.omnisend.com" target="_blank" rel="noopener">Omnisend <span class="pill">free · email+sms</span></a>
+        <p>Email and SMS automation built for ecom. Abandoned-cart and post-purchase flows recover sales on autopilot.</p>
+        <div class="price">Free up to 500 emails/mo</div></div>
+    </div>
+
+    <p class="muted" style="font-size:13px;margin-top:20px">Some of these are affiliate links. I only list tools I would
+      actually use, and it costs you nothing, it just helps me keep this free. Marketing and content is the one stage
+      I built my own tool for, and I cover that below.</p>
   </section>
 
   <!-- M3 -->
@@ -327,6 +407,13 @@ Proof: [reviews / demo / numbers].
     <p><strong>Add paid ads only after organic proves the offer converts.</strong> Paid then pours fuel on a fire
       that is already lit, instead of lighting money on fire (my mistake, do not repeat it). Retarget the audience
       your organic built first. It is the cheapest money in ecom.</p>
+    <div class="box">
+      <span class="mono">One tool for all your marketing</span>
+      When you do turn on paid ads, you need creative. The same tool I use for organic clips (<strong>CartViral</strong>)
+      has an ad-creative mode too, so your organic reels and your paid ad creatives come from one place and learn from
+      the same sales data. Organic that earns the view, and paid creative that converts the bought view, one engine
+      for the whole marketing side. That is the part I stopped outsourcing.
+    </div>
     <p><strong>When to get help:</strong> if the store works but you are the bottleneck, or you want it done right
       the first time without the 7-year learning curve, a done-for-you build makes sense. I personally build a
       small number of stores for people each month, end to end, the same system in this playbook. Fewer clients,
