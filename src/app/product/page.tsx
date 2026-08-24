@@ -59,6 +59,9 @@ const PROOF = [
   { img: "/story/proof-1.jpg", cap: "$11,801 in a single day - 67 orders" },
   { img: "/story/proof-2.jpg", cap: "$7,659 in a day - 159 orders at 3%" },
   { img: "/story/result-3.jpg", cap: "$8,914 in three weeks - 238 orders" },
+  { img: "/story/result-1.jpg", cap: "$5,017 in the first weeks - 138 orders" },
+  { img: "/story/result-2.jpg", cap: "$1,908 in a day - up 147%" },
+  { img: "/story/proof-3.jpg", cap: "$2,824 in a day - up 85%" },
 ];
 
 const FORYOU = [
@@ -311,7 +314,8 @@ export default function ProductPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
           <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">Real client stores · real dashboards</p>
-          <h2 className="mb-8 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">This system has real numbers behind it</h2>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">This system has real numbers behind it</h2>
+          <p className="mb-8 text-zinc-600 dark:text-zinc-400">Across 8 live brands we run, with ROAS up to 4.7x and 150+ orders a day at peak. Real stores, real dashboards.</p>
           <div className="grid gap-5 md:grid-cols-3">
             {PROOF.map((p) => (
               <figure key={p.img} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
