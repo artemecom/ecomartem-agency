@@ -6,7 +6,7 @@ import SmartImg from "../story/SmartImg";
 const URL = "https://ecomartem.com/product";
 const TITLE = "The $1,997 Shopify Playbook, Product to Traffic - Free";
 const DESCRIPTION =
-  "My complete 7-year Shopify system, from picking a product to free traffic at scale, step by step with the exact tools. Gurus sell a worse version for $1,997. I'm giving you the real one free.";
+  "My complete 7-year Shopify system, from picking a product to free traffic at scale, step by step with the exact tools. Experts sell a worse version for $1,997. I'm giving you the real one free.";
 
 export const metadata: Metadata = {
   title: `${TITLE} | EcomArtem`,
@@ -79,7 +79,7 @@ const NOTFORYOU = [
 ];
 
 const FAQ: { q: string; a: string }[] = [
-  { q: "Is it really free? What's the catch?", a: "Really free, no upsell to a paid course. Gurus sell a worse version of this for $1,997. I give the real one away because in 2026 information is cheap, and I only make money if you later use the tool I built or ask me to build your store. So I earn your trust first. That's the whole model." },
+  { q: "Is it really free? What's the catch?", a: "Really free, no upsell to a paid course. Experts sell a worse version of this for $1,997. I give the real one away because in 2026 information is cheap, and I only make money if you later use the tool I built or ask me to build your store. So I earn your trust first. That's the whole model." },
   { q: "Will it stay free?", a: "For now. I may turn it into a paid product later or fold it into something bigger. If you're reading this, grab it while it's free." },
   { q: "Is this just another dropshipping course?", a: "No. It's the complete system, from product research to a store to the traffic that actually sells, plus my exact tool stack and the autopilot engine. Not 15 hours of theory, the parts that move money." },
   { q: "Do I need a big budget?", a: "No. The whole point is organic-first: customers without paying for every click. You can start with the store you already have." },
@@ -134,7 +134,7 @@ export default function ProductPage() {
               I&apos;m giving away my $1,997 Shopify playbook. For free.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              The complete Shopify system, product to traffic. How to pick the product, build the store, and get customers, step by step, with the exact tools. 7 years, thousands of people, steady results. Gurus gate a worse version behind $1,997. I&apos;m handing you the real one for $0.
+              The complete Shopify system, product to traffic. How to pick the product, build the store, and get customers, step by step, with the exact tools. 7 years, thousands of people, steady results. Experts gate a worse version behind $1,997. I&apos;m handing you the real one for $0.
             </p>
             <div className="mt-6"><PriceTag /></div>
             <p className="mt-4 text-sm font-semibold text-zinc-800 dark:text-zinc-200">
@@ -284,7 +284,7 @@ export default function ProductPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-col items-center gap-4 border-t border-zinc-200 pt-8 text-center dark:border-zinc-800">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">What a guru charges for this</div>
+              <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">What an expert charges for this</div>
               <PriceTag center />
               <a href="#get" className="mt-2 inline-flex items-center justify-center rounded-full bg-lime-400 px-10 py-4 text-lg font-bold text-zinc-950 shadow-lg shadow-lime-400/20 transition-colors hover:bg-lime-300">Claim it free →</a>
               <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">No card · no strings · in your inbox in 30 seconds</div>
@@ -303,8 +303,8 @@ export default function ProductPage() {
               <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">Look, I know what you&apos;re thinking.</h2>
               <div className="mt-4 space-y-4 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 <p>&ldquo;Nobody gives away a $1,997 system for free. Where&apos;s the upsell?&rdquo; Fair. So let me spill it.</p>
-                <p>In 2026 information is cheap and AI can build a store for you. A course isn&apos;t worth what gurus pretend. I make money two ways only: if the playbook helps and you want the tool I use for traffic, or you want me to build your store personally. Both happen only <strong className="text-zinc-900 dark:text-white">after</strong> I&apos;ve actually helped you.</p>
-                <p>So there&apos;s no $4k program at the end. No pressure. I give you the real thing, earn your trust, and win only when you win. That&apos;s the opposite of the guru who gates it behind $1,997.</p>
+                <p>In 2026 information is cheap and AI can build a store for you. A course isn&apos;t worth what experts pretend. I make money two ways only: if the playbook helps and you want the tool I use for traffic, or you want me to build your store personally. Both happen only <strong className="text-zinc-900 dark:text-white">after</strong> I&apos;ve actually helped you.</p>
+                <p>So there&apos;s no $4k program at the end. No pressure. I give you the real thing, earn your trust, and win only when you win. That&apos;s the opposite of the expert who gates it behind $1,997.</p>
                 <p className="font-semibold text-zinc-900 dark:text-white">That&apos;s the whole catch. I hate hidden ones too.</p>
               </div>
               <div className="mt-6"><CTA>Yes, send me the free playbook →</CTA></div>

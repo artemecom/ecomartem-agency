@@ -83,7 +83,7 @@ const NOTFORYOU = [
 ];
 
 const FAQ: { q: string; a: string }[] = [
-  { q: "Реально даром? В чём подвох?", a: "Да, даром, и без апсейла в платный курс. Гуру продают версию хуже за 199 тысяч. Я отдаю настоящую, потому что в 2026 информация стоит копейки, а зарабатываю только если ты потом возьмёшь мой инструмент под трафик или закажешь магазин под ключ. Сначала польза, доверие потом." },
+  { q: "Реально даром? В чём подвох?", a: "Да, даром, и без апсейла в платный курс. Эксперты продают версию хуже за 199 тысяч. Я отдаю настоящую, потому что в 2026 информация стоит копейки, а зарабатываю только если ты потом возьмёшь мой инструмент под трафик или закажешь магазин под ключ. Сначала польза, доверие потом." },
   { q: "Это надолго бесплатно?", a: "Пока да. Позже может стать платным. Читаешь сейчас, забирай." },
   { q: "Это очередной курс по дропшиппингу?", a: "Нет. Это полная система: от поиска товара и сборки магазина до трафика, который реально продаёт, плюс мой стек сервисов и движок-автопилот. Не 15 часов теории, а то, что приносит деньги." },
   { q: "Нужен большой бюджет?", a: "Нет. Весь смысл в органике: клиенты без оплаты за клик. Можно стартовать с тем магазином, что уже есть." },
@@ -137,7 +137,7 @@ export default function ProductPageRu() {
         <div className="mx-auto grid max-w-6xl items-start gap-8 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-7">
             <p className="mb-5 inline-block rounded-full border border-lime-500/40 bg-lime-400/10 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">
-              То, за что гуру берут 199 000 ₽
+              То, за что эксперты берут 199 000 ₽
             </p>
             <h1 className="text-balance text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.05] tracking-tight break-normal hyphens-none text-zinc-900 dark:text-white">
               Свой магазин. Свой трафик. Свои правила.
@@ -255,7 +255,7 @@ export default function ProductPageRu() {
               {STACK.map((s) => (<li key={s} className="flex gap-3 text-zinc-800 dark:text-zinc-200"><span className="mt-1 shrink-0 font-bold text-lime-500 dark:text-lime-400">✓</span><span>{s}</span></li>))}
             </ul>
             <div className="mt-8 flex flex-col items-center gap-4 border-t border-zinc-200 pt-8 text-center dark:border-zinc-800">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">Сколько за это берёт гуру</div>
+              <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">Сколько за это берут эксперты</div>
               <PriceTag center />
               <a href="#get" className="mt-2 inline-flex items-center justify-center rounded-full bg-lime-400 px-10 py-4 text-lg font-bold text-zinc-950 shadow-lg shadow-lime-400/20 transition-colors hover:bg-lime-300">Забрать систему →</a>
               <div className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">Без карты · без условий · на почте через минуту</div>
