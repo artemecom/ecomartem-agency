@@ -4,9 +4,9 @@ import PlaybookForm from "./PlaybookForm";
 import SmartImg from "../story/SmartImg";
 
 const URL = "https://ecomartem.com/product";
-const TITLE = "The $1,997 Organic Shopify Playbook - Free";
+const TITLE = "The $1,997 Shopify Playbook, Product to Traffic - Free";
 const DESCRIPTION =
-  "The exact 7-year system I use to get Shopify customers without paying for every click, plus the autopilot content tool behind it. Gurus sell a worse version for $1,997. I'm giving you the real one free.";
+  "My complete 7-year Shopify system, from picking a product to free traffic at scale, step by step with the exact tools. Gurus sell a worse version for $1,997. I'm giving you the real one free.";
 
 export const metadata: Metadata = {
   title: `${TITLE} | EcomArtem`,
@@ -33,26 +33,28 @@ const OLDWAY = [
   "Posting into the void, quitting in month two when it's quiet",
 ];
 
-const SECRETS = [
-  { t: "My secret organic playbook", d: "The exact hook-and-retention formula I use to make strangers stop, watch, and buy, without a single dollar of ads. This is the part gurus never actually teach." },
-  { t: "The free-traffic system", d: "How to get customers without paying for every click. One channel, done deep, that compounds into an asset instead of rented attention that dies the day you stop paying." },
-  { t: "The autopilot content tool", d: "The tool that broke my content wall (jump to it below). Turns your real products into organic videos and learns from what sells. The closest thing to free traffic I've found in 7 years." },
-  { t: "My complete tool stack, by stage", d: "The specific apps I use to research products, build the store with AI, source, and convert. No more paralysis over which app to use." },
-  { t: "The templates and swipe pack", d: "Launch checklist, offer template, content rhythm, hook bank, caption skeletons. Copy, paste, post." },
+const SECRETS: { t: string; d: string; hot?: boolean }[] = [
+  { t: "Pick a winning product", d: "Find products with real demand using the exact research tools I use, not guesswork." },
+  { t: "Build the store in a day", d: "Spin up a clean, trust-building store fast with the AI builders I actually use." },
+  { t: "Source and fulfill", d: "The suppliers and apps to source, brand, and ship without the horror stories." },
+  { t: "Nail the offer and convert", d: "The offer formula and the conversion apps that turn visitors into orders." },
+  { t: "Free traffic at scale", d: "The hard part of ecom, and the part I cracked. My organic system plus the autopilot tool drive traffic in volume, for free.", hot: true },
+  { t: "Templates and swipe pack", d: "Launch checklist, offer template, hook bank, caption skeletons. Copy, paste, post." },
 ];
 
 const STEPS = [
   { n: "1", t: "Grab it free", d: "Two questions, your email, instant access. A copy lands in your inbox too." },
-  { n: "2", t: "Build or fix, then get traffic", d: "Follow the system: a store that converts, then organic content that earns the view without paid ads." },
-  { n: "3", t: "Put content on autopilot", d: "Use the same engine I use to keep the volume up while you sleep, or have me build the whole store for you." },
+  { n: "2", t: "Build the store right", d: "Pick the product, launch the store, set the offer, with the exact tools." },
+  { n: "3", t: "Turn on free traffic", d: "My organic system plus the autopilot tool drive traffic in volume, for free. Or have me build the whole store for you." },
 ];
 
 const STACK = [
-  "The 9-module Organic Shopify Playbook (the full system)",
-  "My secret organic + free-traffic strategies",
-  "The autopilot content tool and exactly how I use it",
-  "My complete app stack, stage by stage",
-  "The templates and swipe pack",
+  "The complete Shopify system, product to traffic (9 modules, step by step)",
+  "Winning-product research with the exact tools",
+  "Build the store in a day with AI",
+  "Sourcing, offer, and conversion apps",
+  "My free-traffic system plus the autopilot content tool (the crown jewel)",
+  "Templates: launch checklist, offers, hook bank",
 ];
 
 const PROOF = [
@@ -79,7 +81,7 @@ const NOTFORYOU = [
 const FAQ: { q: string; a: string }[] = [
   { q: "Is it really free? What's the catch?", a: "Really free, no upsell to a paid course. Gurus sell a worse version of this for $1,997. I give the real one away because in 2026 information is cheap, and I only make money if you later use the tool I built or ask me to build your store. So I earn your trust first. That's the whole model." },
   { q: "Will it stay free?", a: "For now. I may turn it into a paid product later or fold it into something bigger. If you're reading this, grab it while it's free." },
-  { q: "Is this just another dropshipping course?", a: "No. It's the organic-traffic system I run across 1,500+ stores, plus my exact tool stack and the autopilot content engine. Not 15 hours of theory, the parts that actually move money." },
+  { q: "Is this just another dropshipping course?", a: "No. It's the complete system, from product research to a store to the traffic that actually sells, plus my exact tool stack and the autopilot engine. Not 15 hours of theory, the parts that move money." },
   { q: "Do I need a big budget?", a: "No. The whole point is organic-first: customers without paying for every click. You can start with the store you already have." },
   { q: "I'm a complete beginner. Will I get it?", a: "Yes. It's written plainly, step by step, with checklists and templates. Beginners get the full path; people with a store and no sales get the fix." },
   { q: "Why should I trust you?", a: "7 years running Shopify stores, out of Russia, which is why you may not have seen me. I've made real money and lit real money on fire, and both lessons are in here honestly. Read the founder story if you want the full version." },
@@ -132,7 +134,7 @@ export default function ProductPage() {
               I&apos;m giving away my $1,997 Shopify playbook. For free.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              My secret organic strategies, the free-traffic system, and the autopilot tool behind it, the exact stack I use to get customers without paying for every click. Gurus gate a worse version behind $1,997. I&apos;m handing you the real one for $0.
+              The complete Shopify system, product to traffic. How to pick the product, build the store, and get customers, step by step, with the exact tools. 7 years, thousands of people, steady results. Gurus gate a worse version behind $1,997. I&apos;m handing you the real one for $0.
             </p>
             <div className="mt-6"><PriceTag /></div>
             <p className="mt-4 text-sm font-semibold text-zinc-800 dark:text-zinc-200">
@@ -198,7 +200,7 @@ export default function ProductPage() {
             ))}
           </ul>
           <p className="mt-6 text-lg font-semibold leading-relaxed text-zinc-900 dark:text-white">
-            The store was never the hard part. Getting seen without paying for every click is. That&apos;s the whole game, and it&apos;s exactly what this playbook hands you.
+            The product and the store are the easy part. Traffic is where almost everyone dies, and it&apos;s the part I cracked: free, at scale. You get the whole system, and the piece nobody else hands you.
           </p>
         </div>
       </section>
@@ -206,14 +208,15 @@ export default function ProductPage() {
       {/* 5. WHAT'S INSIDE — sell the secrets */}
       <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-16 dark:border-zinc-900 dark:bg-zinc-900/20">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">What&apos;s actually inside</p>
-          <h2 className="mb-8 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">The stuff I&apos;ve never put in one place before</h2>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">What&apos;s inside</p>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-3xl">The full system, product to traffic</h2>
+          <p className="mb-8 max-w-[60ch] text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">Every step, with the exact tools I use. And the heart of it is free traffic.</p>
           <div className="space-y-4">
             {SECRETS.map((s, i) => (
-              <div key={s.t} className="flex gap-4 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
+              <div key={s.t} className={`flex gap-4 rounded-2xl border p-6 ${s.hot ? "border-lime-500/50 bg-lime-400/10 dark:border-lime-400/40 dark:bg-lime-400/5" : "border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950"}`}>
                 <div className="font-mono text-lg font-bold text-lime-600 dark:text-lime-400">{String(i + 1).padStart(2, "0")}</div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-white">{s.t}</h3>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-white">{s.t}{s.hot ? <span className="ml-2 inline-block rounded-full bg-lime-400 px-2 py-0.5 align-middle font-mono text-[9px] uppercase tracking-widest text-zinc-950">the secret</span> : null}</h3>
                   <p className="mt-1 leading-relaxed text-zinc-600 dark:text-zinc-400">{s.d}</p>
                 </div>
               </div>
