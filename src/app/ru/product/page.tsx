@@ -179,7 +179,7 @@ export default function ProductPageRu() {
           <Eyebrow>Если ты на ВБ и Озоне</Eyebrow>
           <H2>Маркетплейс это не бизнес, а съёмная квартира</H2>
           <ul className="mt-6 space-y-3">
-            {OLDWAY.map((o) => (<li key={o} className="flex gap-3 text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{o}</span></li>))}
+            {OLDWAY.map((o) => (<li key={o} className="flex gap-3 leading-snug text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{o}</span></li>))}
           </ul>
           <p className="mt-6 text-lg font-semibold leading-relaxed text-zinc-900 dark:text-white">Товар найти и магазин собрать это ерунда. Весь затык в трафике, тут и отваливаются почти все. Именно его я научился лить бесплатно и тоннами. Даю всю систему целиком, плюс то, чего нет у других.</p>
         </div>
@@ -311,12 +311,12 @@ export default function ProductPageRu() {
           <H2>Кому зайдёт, а кому мимо</H2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-lime-500/30 bg-lime-400/5 p-7 dark:border-lime-400/25">
-              <h3 className="mb-4 font-bold text-zinc-900 dark:text-white">Тебе зайдёт, если</h3>
-              <ul className="space-y-3">{FORYOU.map((f) => (<li key={f} className="flex gap-3 text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-lime-500 dark:text-lime-400">✓</span><span>{f}</span></li>))}</ul>
+              <h3 className="mb-5 font-bold text-zinc-900 dark:text-white">Тебе зайдёт, если</h3>
+              <ul className="space-y-3">{FORYOU.map((f) => (<li key={f} className="flex gap-3 leading-snug text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-lime-500 dark:text-lime-400">✓</span><span>{f}</span></li>))}</ul>
             </div>
             <div className="rounded-2xl border border-zinc-200 bg-white p-7 dark:border-zinc-800 dark:bg-zinc-950">
-              <h3 className="mb-4 font-bold text-zinc-900 dark:text-white">Не трать время, если</h3>
-              <ul className="space-y-3">{NOTFORYOU.map((f) => (<li key={f} className="flex gap-3 text-zinc-600 dark:text-zinc-400"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{f}</span></li>))}</ul>
+              <h3 className="mb-5 font-bold text-zinc-900 dark:text-white">Не трать время, если</h3>
+              <ul className="space-y-3">{NOTFORYOU.map((f) => (<li key={f} className="flex gap-3 leading-snug text-zinc-600 dark:text-zinc-400"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{f}</span></li>))}</ul>
             </div>
           </div>
         </div>

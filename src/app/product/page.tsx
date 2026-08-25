@@ -193,7 +193,7 @@ export default function ProductPage() {
           </p>
           <ul className="space-y-3">
             {OLDWAY.map((o) => (
-              <li key={o} className="flex gap-3 text-zinc-700 dark:text-zinc-300">
+              <li key={o} className="flex gap-3 leading-snug text-zinc-700 dark:text-zinc-300">
                 <span className="mt-1 shrink-0 text-red-500">✕</span>
                 <span>{o}</span>
               </li>
@@ -372,18 +372,18 @@ export default function ProductPage() {
       <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-16 dark:border-zinc-900 dark:bg-zinc-900/20">
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-lime-500/30 bg-lime-400/5 p-7 dark:border-lime-400/25">
-            <h3 className="mb-4 text-lg font-bold text-zinc-900 dark:text-white">This is for you if</h3>
+            <h3 className="mb-5 text-lg font-bold text-zinc-900 dark:text-white">This is for you if</h3>
             <ul className="space-y-3">
               {FORYOU.map((f) => (
-                <li key={f} className="flex gap-3 text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-lime-500 dark:text-lime-400">✓</span><span>{f}</span></li>
+                <li key={f} className="flex gap-3 leading-snug text-zinc-700 dark:text-zinc-300"><span className="mt-1 shrink-0 text-lime-500 dark:text-lime-400">✓</span><span>{f}</span></li>
               ))}
             </ul>
           </div>
           <div className="rounded-2xl border border-zinc-200 bg-white p-7 dark:border-zinc-800 dark:bg-zinc-950">
-            <h3 className="mb-4 text-lg font-bold text-zinc-900 dark:text-white">It&apos;s not for you if</h3>
+            <h3 className="mb-5 text-lg font-bold text-zinc-900 dark:text-white">It&apos;s not for you if</h3>
             <ul className="space-y-3">
               {NOTFORYOU.map((f) => (
-                <li key={f} className="flex gap-3 text-zinc-600 dark:text-zinc-400"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{f}</span></li>
+                <li key={f} className="flex gap-3 leading-snug text-zinc-600 dark:text-zinc-400"><span className="mt-1 shrink-0 text-red-500">✕</span><span>{f}</span></li>
               ))}
             </ul>
           </div>
