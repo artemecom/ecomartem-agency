@@ -362,7 +362,7 @@ export default function ProductPageRu() {
       <section className={`${SECTION} border-t border-zinc-200 bg-zinc-50 dark:border-zinc-900 dark:bg-zinc-900/20`}>
         <div className="mx-auto max-w-3xl">
           <p className="font-mono text-[11px] uppercase tracking-widest text-lime-600 dark:text-lime-400">P.S.</p>
-          <p className="mt-3 text-base leading-relaxed text-zinc-700 dark:text-zinc-300 md:text-lg">Мог бы закрыть всё это за 199 тысяч, как все. Мне выгоднее отдать по-настоящему рабочую вещь, доказать делом и заслужить право помочь дальше. Забирай, пока даром.</p>
+          <p className="mt-3 text-base leading-relaxed text-zinc-700 dark:text-zinc-300 md:text-lg">Мог бы продать всё это за 199 тысяч, как все. Мне выгоднее отдать по-настоящему рабочую вещь, доказать делом и заслужить право помочь дальше. Забирай, пока даром.</p>
           <p className="mt-4 font-semibold text-zinc-900 dark:text-white">Артём</p>
         </div>
       </section>
