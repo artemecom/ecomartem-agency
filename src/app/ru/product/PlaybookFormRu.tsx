@@ -92,7 +92,7 @@ export default function PlaybookFormRu() {
       </div>
       <ValidationError errors={state.errors} className="text-xs text-red-500 dark:text-red-400" />
       <button type="submit" disabled={state.submitting} className="mt-1 inline-flex items-center justify-center rounded-full bg-lime-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-lime-300 disabled:cursor-not-allowed disabled:opacity-60">
-        {state.submitting ? "Отправляю…" : "Забрать плейбук бесплатно →"}
+        {state.submitting ? "Отправляю…" : "Забрать систему →"}
       </button>
       <p className="text-center font-mono text-[11px] leading-relaxed text-zinc-500">Бесплатно. Без спама. Два вопроса, чтобы подсказать тебе следующий шаг.</p>
     </form>
