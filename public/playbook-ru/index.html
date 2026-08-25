@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Плейбук по органическому Shopify — EcomArtem</title>
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141418; --panel2:#1b1b20; --line:#26262c;
+    --text:#e9e9ec; --muted:#9a9aa2; --lime:#a3e635; --lime2:#84cc16;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 26px}
+  a{color:var(--lime)}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--lime)}
+  h1{font-size:52px;line-height:1.05;letter-spacing:-.02em;margin:.2em 0 .3em;font-weight:800}
+  h2{font-size:30px;line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em;font-weight:800}
+  h3{font-size:19px;margin:1.4em 0 .4em;font-weight:700}
+  p{margin:0 0 1em;color:#d6d6db}
+  .muted{color:var(--muted)}
+  .lime{color:var(--lime)}
+  strong{color:#fff}
+
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:64px 0;position:relative;overflow:hidden}
+  .cover .photo{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;margin-top:28px;
+    border:1px solid var(--line)}
+  .badge{display:inline-block;border:1px solid rgba(163,230,53,.4);background:rgba(163,230,53,.08);
+    color:var(--lime);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;margin-bottom:18px}
+
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+    border-radius:12px;background:var(--lime);color:#0a0a0b;font-weight:800;font-size:18px;margin-bottom:16px}
+
+  blockquote{margin:26px 0;padding:4px 0 4px 22px;border-left:3px solid var(--lime);
+    font-size:22px;line-height:1.35;font-weight:700;color:#fff}
+
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:22px 0}
+  .box .mono{margin-bottom:10px;display:block}
+  .check{list-style:none;padding:0;margin:0}
+  .check li{padding:7px 0 7px 30px;position:relative;color:#d6d6db}
+  .check li:before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;border-radius:4px;
+    border:2px solid var(--lime)}
+  .tmpl{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#c9c9cf;white-space:pre-wrap}
+
+  figure{margin:24px 0}
+  figure img{width:100%;border-radius:14px;border:1px solid var(--line);background:#fff;display:block}
+  figure.dark img{background:var(--panel)}
+  figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+  .grid{display:grid;gap:16px}
+  .grid.g3{grid-template-columns:repeat(3,1fr)}
+  .grid.g2{grid-template-columns:repeat(2,1fr)}
+  .grid figure{margin:0}
+  .grid img{aspect-ratio:4/3;object-fit:contain}
+  .cases img{aspect-ratio:4/3;object-fit:cover;background:var(--panel)}
+  .store img{aspect-ratio:3/4;object-fit:cover;object-position:top;background:#fff}
+
+  .grp{margin:24px 0 8px;font-weight:800;font-size:18px;color:#fff}
+  .tools{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:12px 0}
+  .tool{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .tool .tname{font-weight:700;color:#fff;font-size:15px;text-decoration:none}
+  .tool .tname:hover{color:var(--lime)}
+  .tool .pill{font-family:ui-monospace,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--lime);border:1px solid rgba(163,230,53,.35);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle}
+  .tool p{margin:7px 0 0;font-size:13px;color:#b9b9c0;line-height:1.45}
+  .tool .price{margin-top:7px;font-size:12px;color:var(--muted)}
+  @media(max-width:640px){.tools{grid-template-columns:1fr}}
+
+  .cta{display:inline-block;background:var(--lime);color:#0a0a0b;font-weight:700;text-decoration:none;
+    border-radius:999px;padding:15px 30px;margin-top:8px}
+  .final{background:linear-gradient(180deg,var(--panel),#0d0d0f);border:1px solid var(--line);
+    border-radius:22px;padding:44px 34px;text-align:center;margin:20px 0}
+
+  .toc{columns:2;column-gap:34px}
+  .toc a{display:block;color:#d6d6db;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+  .toc a b{color:var(--lime);font-family:ui-monospace,monospace;margin-right:8px}
+
+  @media (max-width:640px){
+    h1{font-size:34px} h2{font-size:24px} .grid.g3,.grid.g2,.toc{grid-template-columns:1fr;columns:1}
+  }
+  @media print{
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cover{min-height:auto;padding:14px 0}
+    section{padding:18px 0}
+    figure,.box,blockquote,.final,.grid,ul.check,.tool{break-inside:avoid}
+    h2,h3{break-after:avoid}
+    figure img{max-height:82vh;object-fit:contain}
+    .num{break-after:avoid}
+    .no-print{display:none}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <header class="cover">
+    <div class="badge">Бесплатный плейбук · без платного курса за ним</div>
+    <div class="mono">EcomArtem · Shopify с 2019</div>
+    <h1>Плейбук по<br>органическому Shopify</h1>
+    <p style="font-size:20px;max-width:640px" class="muted">
+      Как я пригоняю клиентов в магазин на Shopify <strong>без оплаты за каждый клик</strong>.
+      7 лет. Реальные магазины. Без воды.
+    </p>
+    <img class="photo" src="/founder-16x9.jpg" alt="Артём, основатель EcomArtem">
+    <p class="muted" style="margin-top:22px;font-size:15px">
+      Бесплатно, и никакого апселла на платный курс. Это настоящее. Если помогло, единственная просьба, следи
+      дальше и, может, однажды дай мне собрать тебе магазин. Вот и вся воронка. Скрытые я и сам терпеть не могу.
+    </p>
+  </header>
+
+  <!-- READ FIRST -->
+  <section>
+    <div class="mono">Прочитай сначала · 2 минуты</div>
+    <h2>Магазин это лёгкие 20%.</h2>
+    <p>Я Артём. 7 лет строю магазины на Shopify, из России, поэтому ты меня, скорее всего, не видел. Я зарабатывал
+      и я сжигал деньги. Однажды слил весь рекламный бюджет на четырёх площадках и получил ноль продаж. Покажу
+      ровно почему, чтобы ты не повторил.</p>
+    <p>Одна мысль, на которой держится весь плейбук:</p>
+    <blockquote>В 2026 магазин это лёгкие 20%. Трафик это те 80%, про которые никто не хочет слышать.</blockquote>
+    <p>Нейронка соберёт тебе магазин до обеда. Раньше это было преимущество. Больше нет. Ров сегодня в том, сможешь
+      ли ты зацепить незнакомца, не платя за каждый клик. Этот навык и делит магазины на те, что умирают за 90 дней,
+      и те, что печатают годами.</p>
+    <div class="box">
+      <span class="mono">Как этим пользоваться</span>
+      Один модуль, потом действие, потом следующий. Плейбук, по которому ты действуешь, бьёт курс, который ты
+      досмотрел.
+    </div>
+    <div class="toc" style="margin-top:26px">
+      <a href="#m1"><b>01</b> Правда об ecom в 2026</a>
+      <a href="#m2"><b>02</b> Собери магазин быстро и правильно</a>
+      <a href="#m3"><b>03</b> Доведи оффер до трафика</a>
+      <a href="#m4"><b>04</b> Система трафика (те самые 80%)</a>
+      <a href="#m5"><b>05</b> Контент каждый день без выгорания</a>
+      <a href="#m6"><b>06</b> Будь виден и для ИИ-агентов</a>
+      <a href="#m7"><b>07</b> Считай то, что реально важно</a>
+      <a href="#m8"><b>08</b> Когда масштабироваться (и звать на помощь)</a>
+      <a href="#m9"><b>09</b> Шаблоны и заготовки</a>
+    </div>
+  </section>
+
+  <!-- M1 -->
+  <section id="m1">
+    <div class="num">01</div>
+    <h2>Правда об ecom в 2026</h2>
+    <p>Три сдвига, которые меняют всё. Усвой их, и ты уже впереди 90% тех, кто открывает магазин.</p>
+    <h3>1. Товар это уже не преимущество.</h3>
+    <p>Любой найдёт тот же товар и соберёт нейронкой такой же магазин. «Я нашёл выигрышный товар» больше не козырь.
+      Это база. Козырь это внимание.</p>
+    <h3>2. Реклама это аренда, органика это актив.</h3>
+    <p>Реклама работает, но как только перестал платить, трафик встал. Органика копится: хороший ролик работает
+      месяцами, а следующий ложится сверху. Богатые владеют активами. То же правило, только про внимание.</p>
+    <h3>3. Агентная торговля идёт быстро.</h3>
+    <p>Твои клиенты уже начинают спрашивать у ИИ «найди лучший X до 3000 рублей» и покупают то, что выдаёт агент.
+      Через год приличная доля покупателей вообще не зайдёт в твой магазин. Выиграют магазины, которые понятны и
+      человеку, и агенту.</p>
+    <blockquote>Хватит залипать на товаре и теме оформления. Начни залипать на трафике.</blockquote>
+    <figure class="dark">
+      <img src="/story/proof-1.jpg" alt="Кабинет выручки за один день">
+      <figcaption>Реальный кабинет одного из наших магазинов: 11 801 $ за один день, 67 заказов. Трафик, а не удача.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M2 -->
+  <section id="m2">
+    <div class="num">02</div>
+    <h2>Собери магазин быстро и правильно</h2>
+    <p>Не зависай тут на три недели. Чистый, вызывающий доверие магазин, который продаёт, за день-два. А потом за
+      настоящую работу.</p>
+    <h3>Выбирай нишу под трафик, а не только под маржу</h3>
+    <p>До товара спроси себя: смогу ли я снимать про это интересный контент каждый день полгода? Товар, про который
+      нечего рассказывать, это мёртвый магазин, каким бы хорошим он ни был.</p>
+    <h3>Что реально двигает конверсию</h3>
+    <div class="box">
+      <span class="mono">Чек-лист запуска магазина</span>
+      <ul class="check">
+        <li>Одно понятное обещание на первом экране (что, кому, чем лучше)</li>
+        <li>Реальные фото или видео товара, а не только сток поставщика</li>
+        <li>3+ отзыва на карточке товара</li>
+        <li>Быстрый и очевидный чекаут: экспресс-оплата, сначала мобилка</li>
+        <li>Настоящая причина купить сейчас (комплект, дроп, сроки доставки)</li>
+        <li>Доставка и возврат написаны по-человечески</li>
+        <li>Пиксель и аналитика стоят</li>
+      </ul>
+    </div>
+    <p><strong>Что пока не важно:</strong> кастомная тема, платный логотип, 40 товаров. Один герой-товар, одна
+      чистая страница, живая. Дошлифуешь, когда реальный трафик покажет, что не так.</p>
+    <div class="grid g3 cases" style="margin-top:22px">
+      <figure><img src="/cases/arthouses.jpg" alt="ArtHouses"><figcaption>ArtHouses</figcaption></figure>
+      <figure><img src="/cases/rainrunner.jpg" alt="RainRunner"><figcaption>RainRunner</figcaption></figure>
+      <figure><img src="/cases/lumena.jpg" alt="Lumena"><figcaption>Lumena</figcaption></figure>
+    </div>
+    <figcaption class="muted">Пара брендов, которые мы собрали. Реальные магазины, а не помойка.</figcaption>
+  </section>
+
+  <!-- TOOLBOX -->
+  <!-- ЗАМЕТКА (Артём): ссылки ведут на офиц. сайты. Перед публикацией подмени каждый href на СВОЙ реф. -->
+  <section id="toolbox">
+    <div class="mono">Инструменты · чем я реально пользуюсь</div>
+    <h2>Хватит гадать, какой сервис включить</h2>
+    <p>Система выше ничего не стоит, если ты застрял на «а каким тулом». Вот мой стек по шагам. Тут только то, чем я
+      сам пользовался бы, и у каждого есть бесплатный триал или бесплатный тариф, чтобы стартануть сегодня.</p>
+
+    <div class="grp">1 · Найти выигрышный товар</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://www.sellthetrend.com" target="_blank" rel="noopener">Sell The Trend <span class="pill">всё в одном</span></a>
+        <p>ИИ сканит AliExpress, TikTok и Amazon по трендам и показывает реальный спрос. Лучший набор для новичка.</p>
+        <div class="price">Бесплатный триал · от ~$30/мес</div></div>
+      <div class="tool"><a class="tname" href="https://tolt.link/mercurypr" target="_blank" rel="noopener">Winning Hunter <span class="pill">шпион tiktok/fb</span></a>
+        <p>Подсматривай живые креативы в TikTok и Facebook, смотри, что масштабируют прямо сейчас. Этим пользуются те, кого ты видишь в ленте.</p>
+        <div class="price">Бесплатный тариф · от ~$49/мес</div></div>
+      <div class="tool"><a class="tname" href="https://dropship.io" target="_blank" rel="noopener">Dropship.io <span class="pill">шпион продаж</span></a>
+        <p>Смотри продажи любого Shopify-магазина в реальном времени, чтобы проверить товар до вложений. Чисто и понятно новичку.</p>
+        <div class="price">Триал за $1 · от ~$39/мес</div></div>
+    </div>
+
+    <div class="grp">2 · Собрать магазин быстро (ИИ)</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://gempages.net" target="_blank" rel="noopener">GemPages <span class="pill">ии-страницы</span></a>
+        <p>ИИ собирает продающие карточки и лендинги из промпта или референса. На нём крутится большинство магазинов.</p>
+        <div class="price">Бесплатный тариф · платно от ~$23/мес</div></div>
+      <div class="tool"><a class="tname" href="https://shopify.pxf.io/7495319-link" target="_blank" rel="noopener">Shopify Magic + Sidekick <span class="pill">родной ии</span></a>
+        <p>Встроено в Shopify: ИИ пишет тексты, делает картинки, а Sidekick правит магазин прямо в чате. Для старта отдельный тул не нужен.</p>
+        <div class="price">Включено · Shopify от $1 за первый месяц</div></div>
+      <div class="tool"><a class="tname" href="https://storebuild.ai" target="_blank" rel="noopener">Storebuild.ai <span class="pill">бесплатно · быстрее всех</span></a>
+        <p>Выбираешь нишу, ИИ за минуты собирает магазин уже с товарами. Ноль денег, чтобы запустить что-то живое сегодня.</p>
+        <div class="price">Генерация бесплатно</div></div>
+    </div>
+
+    <div class="grp">3 · Найти поставщика и завести товары</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://www.spocket.co" target="_blank" rel="noopener">Spocket <span class="pill">us/eu · быстрая доставка</span></a>
+        <p>Поставщики, которые везут из США и ЕС, доставка дни, а не недели. Свои накладные под бренд. Лучшее под реальный бренд.</p>
+        <div class="price">Бесплатный триал · от ~$40/мес</div></div>
+      <div class="tool"><a class="tname" href="https://www.dsers.com" target="_blank" rel="noopener">DSers <span class="pill">бесплатно · aliexpress</span></a>
+        <p>Бесплатный дефолт для управления заказами с AliExpress (заменил Oberlo). Лучшее, когда стартуешь дёшево до US-поставщиков.</p>
+        <div class="price">Бесплатный тариф</div></div>
+      <div class="tool"><a class="tname" href="https://www.zendrop.com" target="_blank" rel="noopener">Zendrop <span class="pill">брендинг</span></a>
+        <p>Быстрые US-товары, своя упаковка и вкладыши под бренд, авто-фулфилмент. Превращает дропшип в настоящий бренд.</p>
+        <div class="price">Бесплатный тариф · Pro ~$49/мес</div></div>
+    </div>
+
+    <div class="grp">4 · Заставить конвертить (приложения, которые я ставлю)</div>
+    <div class="tools">
+      <div class="tool"><a class="tname" href="https://vitals.app" target="_blank" rel="noopener">Vitals <span class="pill">всё в одном</span></a>
+        <p>40+ инструментов конверсии в одном приложении: отзывы, апселлы, комплекты и другое. Самый дешёвый способ закрыть всё сразу.</p>
+        <div class="price">$29.99/мес · длинный триал</div></div>
+      <div class="tool"><a class="tname" href="https://loox.io" target="_blank" rel="noopener">Loox <span class="pill">фото-отзывы</span></a>
+        <p>Фото и видео-отзывы с авто-запросами. Визуальный соц-пруф это самый сильный рычаг доверия на карточке.</p>
+        <div class="price">Бесплатный тариф · от ~$10/мес</div></div>
+      <div class="tool"><a class="tname" href="https://www.omnisend.com" target="_blank" rel="noopener">Omnisend <span class="pill">бесплатно · email+sms</span></a>
+        <p>Email и SMS-автоматизация под ecom. Брошенная корзина и пост-продажные цепочки возвращают продажи на автопилоте.</p>
+        <div class="price">Бесплатно до 500 писем/мес</div></div>
+    </div>
+
+    <p class="muted" style="font-size:13px;margin-top:20px">Часть ссылок партнёрские. Я перечисляю только те тулы,
+      которыми пользовался бы сам, тебе это ничего не стоит, просто помогает держать плейбук бесплатным. Маркетинг и
+      контент это единственный этап, под который я построил свой тул, про него ниже.</p>
+  </section>
+
+  <!-- M3 -->
+  <section id="m3">
+    <div class="num">03</div>
+    <h2>Доведи оффер до того, как трогать трафик</h2>
+    <p>Самая дорогая ошибка в ecom: лить трафик на оффер, который не конвертит. Ровно так я и слил тот бюджет в ноль
+      продаж. Дело было не в трафике. Оффер был не готов.</p>
+    <blockquote>Первые 100 заказов учат тебя офферу. Пока нет продаж с небольшого трафика, не масштабируй.</blockquote>
+    <p>Дырявое ведро не надо доливать. Его надо чинить.</p>
+    <div class="box">
+      <span class="mono">Шаблон оффера</span>
+      <div class="tmpl">Для [кого], [товар] даёт [результат] без [боли].
+Пруф: [отзывы / демо / цифры].
+[Комплект / цена] + [гарантия] + [причина купить сейчас].</div>
+    </div>
+    <p>Если не можешь честно заполнить каждую строку, оффер не готов. Почини до модуля 4.</p>
+    <figure class="dark">
+      <img src="/story/result-1.jpg" alt="Магазин клиента, первые недели">
+      <figcaption>Магазин клиента, первые три недели: 5 017 $, 138 заказов. Оффер конвертил ещё до масштабирования.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M4 -->
+  <section id="m4">
+    <div class="num">04</div>
+    <h2>Система трафика (те самые 80%)</h2>
+    <p>Это вся игра. Прочитай дважды.</p>
+    <h3>Правило 1: сначала органика, один канал, вглубь.</h3>
+    <p>Выбери ОДНУ площадку, где твой покупатель уже сидит. Пять площадок плохо проигрывают одной, сделанной хорошо.
+      Освой одну, потом клонируй.</p>
+    <h3>Правило 2: контент зарабатывает просмотр, а не покупает его.</h3>
+    <p>Реклама покупает гарантированный показ и продаёт в лоб. Органике надо заработать просмотр хуком и удержать
+      досмотром, и если запахло рекламой, алгоритм режет охват.</p>
+    <div class="box">
+      <span class="mono">Формула органики</span>
+      <ul class="check">
+        <li>Сначала хук: останови скролл в первые 1-2 секунды / первой строкой</li>
+        <li>Досмотр до товара: начни с того, что реально стоит посмотреть</li>
+        <li>Живое, не глянец: энергия съёмки на телефон бьёт студийную рекламу</li>
+        <li>CTA в подписи или комментах, никогда не «КУПИ» молотком по видео</li>
+      </ul>
+    </div>
+    <h3>Правило 3: регулярность бьёт интенсивность.</h3>
+    <p>3-5 единиц в неделю полгода бьют один вирусный замах. Второй месяц тихий у всех. Выигрывают те, кто просто не
+      бросил.</p>
+    <div class="box">
+      <span class="mono">Банк хуков · воруй структуру, не слова</span>
+      <div class="tmpl">"Большинство [в нише] делают X. И это убивает их [результат]."
+"Я потратил [время/деньги], чтобы понять это, чтобы тебе не пришлось."
+"Никто не говорит, почему [обычная вещь] на самом деле [неожиданный итог]."
+"Хватит делать [ходовой совет]. Делай вот так."
+"[Число] [штук], которые [результат] (большинство пропускают №[n])."</div>
+    </div>
+    <figure class="dark">
+      <img src="/story/result-3.jpg" alt="Магазин клиента, три недели">
+      <figcaption>Та же система, другой магазин: 8 914 $ за три недели, 238 заказов. Это закономерность, не удача.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M5 -->
+  <section id="m5">
+    <div class="num">05</div>
+    <h2>Контент каждый день без выгорания</h2>
+    <p>Система трафика работает, только если ты реально можешь выдавать контент каждый день. Тут большинство и
+      бросает. Вот как не бросить.</p>
+    <blockquote>Автоматизируй руки. Голову оставь себе.</blockquote>
+    <p><strong>Автоматизируй:</strong> ресёрч, черновики, нарезку под форматы, субтитры, варианты, подготовку к
+      выкладке, превращение каталога в видео. <strong>Никогда не автоматизируй:</strong> хук, точку зрения и ответы
+      в первый час. Именно это заставляет незнакомца тебе доверять. Полностью автоматический аккаунт ловит бан и
+      умирает. Постишь руками, всегда.</p>
+    <h3>Самое тяжёлое: видео товара на объёме</h3>
+    <p>Я перестал руками делать каждый ролик. Подключаю каталог магазина к тулу, который превращает мои реальные
+      товары в органик-видео и учится на том, что заходит, подкидывая это в следующую пачку. Называется
+      <strong>CartViral</strong>. Он не постит сам (риск бана, который убивает охват). Он делает ролики, я выбираю и
+      постю руками, а следующая волна умнеет от цифр. Он даёт объём, чтобы я сохранил суждение.</p>
+    <div class="grid g2">
+      <figure class="dark"><img src="/playbook/cv-3.png" alt="Каталог подключён"><figcaption>Подключаешь каталог. Движок оценивает, какие товары толкать, по сигналу продаж.</figcaption></figure>
+      <figure class="dark"><img src="/playbook/cv-4.png" alt="Генерация в студии"><figcaption>Выбираешь тип ролика, генеришь органик-видео из реального товара.</figcaption></figure>
+    </div>
+    <figure class="dark"><img src="/playbook/cv-5.png" alt="Экспорт и ручная выкладка"><figcaption>Экспортируешь ролик с подписью и хэштегами. Постишь руками. Волна учится на статистике.</figcaption></figure>
+    <div class="box">
+      <span class="mono">Недельный ритм · забирай</span>
+      <ul class="check">
+        <li>Пн: собрал тренды, выбрал углы на неделю (30 минут)</li>
+        <li>Каждый день: 1 короткое видео + 1 текстовый пост, руками, ответы в первый час</li>
+        <li>2 раза/нед: 1 карусель</li>
+        <li>Пт: посмотрел цифры, оставил, что сработало, срезал, что нет</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- M6 -->
+  <section id="m6">
+    <div class="num">06</div>
+    <h2>Будь виден и для ИИ-агентов</h2>
+    <p>Большинство владельцев магазинов этого ещё не заметили, поэтому тут и есть щель.</p>
+    <p>Когда покупатель просит ИИ-агента сходить за него в магазин, агент читает данные твоих товаров и твой контент.
+      Богато, конкретно, единообразно, и ты появляешься. Пустой сток поставщика, и ты невидим для самого быстрорастущего
+      покупателя в сети.</p>
+    <div class="box">
+      <ul class="check">
+        <li>Пиши реальные, конкретные описания товара (выгоды + детали), не текст поставщика</li>
+        <li>Держи контент и каталог согласованными (один и тот же образ товара везде)</li>
+        <li>Чистые, структурированные данные о товаре</li>
+      </ul>
+    </div>
+    <p>Тот же контент, что делает твои ролики, кормит и видимость для агентов. Один актив, две аудитории: люди в ленте
+      и агенты, которые ходят за покупками.</p>
+  </section>
+
+  <!-- M7 -->
+  <section id="m7">
+    <div class="num">07</div>
+    <h2>Считай то, что реально важно</h2>
+    <p>Тщеславные метрики убивают фокус. Один мой пост собрал 400к просмотров и не принёс ничего, а скучный сделал
+      сорок тысяч. Охват это не выручка.</p>
+    <div class="box">
+      <span class="mono">Смотри только на это, еженедельно</span>
+      <ul class="check">
+        <li>Выручка и заказы (единственная правда)</li>
+        <li>Конверсия карточки товара (работает ли оффер)</li>
+        <li>Какой контент дал заходы в профиль и клики по ссылке (какой угол продаёт)</li>
+        <li>Стоимость привлечения, даже у органики есть цена во времени</li>
+      </ul>
+    </div>
+    <blockquote>Мотивация это развод. Движущаяся цифра это топливо. Не работай больше недели без доказательства.</blockquote>
+  </section>
+
+  <!-- M8 -->
+  <section id="m8">
+    <div class="num">08</div>
+    <h2>Когда масштабироваться (и когда звать на помощь)</h2>
+    <p><strong>Включай платную рекламу только после того, как органика доказала, что оффер конвертит.</strong> Тогда
+      платка подливает топливо в уже горящий костёр, а не сжигает деньги (моя ошибка, не повторяй). Сначала ретаргеть
+      аудиторию, которую собрала органика. Это самые дешёвые деньги в ecom.</p>
+    <div class="box">
+      <span class="mono">Один тул на весь маркетинг</span>
+      Когда включишь платку, нужны креативы. Тот же тул, которым я делаю органик-ролики (<strong>CartViral</strong>),
+      умеет и режим рекламных креативов, так что твои органик-рилсы и платные креативы идут из одного места и учатся на
+      одних данных о продажах. Органика зарабатывает просмотр, платка конвертит купленный, один движок на весь маркетинг.
+      Это как раз то, что я перестал отдавать на сторону.
+    </div>
+    <p><strong>Когда звать на помощь:</strong> если магазин работает, но узкое горлышко это ты, или ты хочешь сделать
+      правильно с первого раза без 7-летнего набивания шишек, магазин под ключ имеет смысл. Я лично собираю в месяц
+      небольшое число магазинов, от начала до конца, по той же системе, что в этом плейбуке. Меньше клиентов, но
+      качественно.</p>
+    <figure class="dark">
+      <img src="/story/proof-2.jpg" alt="Масштабированный день">
+      <figcaption>Масштабированный день: 7 659 $, 159 заказов при конверсии 3%. Платка подлита поверх оффера, который уже работал.</figcaption>
+    </figure>
+  </section>
+
+  <!-- M9 -->
+  <section id="m9">
+    <div class="num">09</div>
+    <h2>Шаблоны и заготовки</h2>
+    <p>Всё выше в формате «копируй-вставляй».</p>
+    <div class="box">
+      <span class="mono">Заготовки углов контента · подставь свой товар</span>
+      <div class="tmpl">Ошибка, которую большинство совершают с [категорией товара]
+Чего тебе не говорят про [товар / нишу]
+Почему я [сильное мнение о нише]
+[Товар] против [привычной альтернативы]: реальная разница
+Как [получить результат] без [боли]</div>
+    </div>
+    <div class="box">
+      <span class="mono">Скелет подписи</span>
+      <div class="tmpl">[Хук в одну строку, который держится сам]
+[2-3 строки пользы или истории]
+[Мягкий CTA: напиши СЛОВО в комменты / ссылка в шапке]
+[3-5 релевантных хэштегов]</div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof">
+    <div class="mono">Пруф, не теория</div>
+    <h2>Реальные магазины. Реальные бренды.</h2>
+    <p>Всё тут из сборки настоящих магазинов, а не из презентации. Пара тех, что мы собрали и ведём:</p>
+    <div class="grid g3 store">
+      <figure><img src="/playbook/store-arthouses.jpg" alt="Витрина ArtHouses"><figcaption>ArtHouses — премиум свет и дом. DACH / EU.</figcaption></figure>
+      <figure><img src="/playbook/store-rainrunner.jpg" alt="Витрина RainRunner"><figcaption>RainRunner — эко-дождевики. £54.90, рейтинг 5/5. UK / EU.</figcaption></figure>
+      <figure><img src="/playbook/store-lumena.jpg" alt="Витрина Lumena"><figcaption>Lumena — лампы-океаны и колонки. 5 000+ клиентов.</figcaption></figure>
+    </div>
+    <div class="box" style="margin-top:26px">
+      <div style="display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;text-align:center">
+        <div><div class="lime" style="font-size:30px;font-weight:800">1 500+</div><div class="muted" style="font-size:13px">магазинов собрано</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">5 000+</div><div class="muted" style="font-size:13px">человек обучено</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">7 лет</div><div class="muted" style="font-size:13px">с 2019</div></div>
+        <div><div class="lime" style="font-size:30px;font-weight:800">11 801 $</div><div class="muted" style="font-size:13px">топ за один день</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH ME -->
+  <section id="work">
+    <div class="mono">Или пропусти путь проб и ошибок</div>
+    <h2>Хочешь, чтобы я просто собрал тебе магазин?</h2>
+    <p>Теперь у тебя есть вся система. Но знать её и исполнить безупречно это две разные вещи. Новички регулярно
+      сжигают <strong>полмиллиона-миллион рублей</strong> на рекламе до первой реальной продажи. Я собрал 1 500+
+      магазинов. Когда собираю твой, ты пропускаешь эти дорогие годы.</p>
+    <h3>Что это</h3>
+    <p>Я лично собираю твой магазин от и до: товар, магазин, оффер, систему трафика и контент-стек, на 7 годах опыта.
+      Не курс, не куратор, раздающий видео. Я. Меньше клиентов, но качественно, на более высоком уровне.</p>
+    <div class="box">
+      <span class="mono">Почему это лучше, чем в одиночку</span>
+      <ul class="check">
+        <li>На базе 1 500+ магазинов, каждая ошибка уже проверена и обойдена</li>
+        <li>Настоящий бренд, а не помойка: нормальный магазин, оффер и контент с первого дня</li>
+        <li>Ровно та система из этого плейбука, исполненная за тебя</li>
+        <li>У тебя остаётся актив, которым ты владеешь и который работает с ноутбука</li>
+      </ul>
+    </div>
+    <figure class="dark">
+      <img src="/story/result-2.jpg" alt="Результат магазина клиента">
+      <figcaption>Магазин клиента, который мы собрали: 1 908 $ за день, +147%. На той же системе, исполненной правильно.</figcaption>
+    </figure>
+
+    <div class="final">
+      <div class="mono">Бесплатно · без впаривания</div>
+      <h2 style="margin-top:10px">Получи бесплатный разбор магазина</h2>
+      <p class="muted" style="max-width:580px;margin:0 auto 22px">
+        Расскажи, где ты и чего хочешь. Я посмотрю на твою ситуацию и честно скажу, есть ли смысл в магазине под ключ
+        именно для тебя. Не подходит, скажу прямо. Без давления, просто честный ответ от того, кто делает это 7 лет.
+      </p>
+      <a class="cta" href="https://ecomartem.com/story#apply">Записаться на бесплатный разбор →</a>
+      <p class="muted" style="margin-top:16px;font-size:13px">Или просто ответь на письмо, с которым пришёл этот плейбук.</p>
+    </div>
+    <p class="muted" style="text-align:center;font-size:15px">
+      Магазин это лёгкие 20%. Сам или со мной, иди выиграй те 80%.<br>— Артём
+    </p>
+    <p class="mono" style="text-align:center;margin-top:24px">EcomArtem · Shopify с 2019 · ecomartem.com</p>
+  </section>
+
+</div>
+</body>
+</html>
